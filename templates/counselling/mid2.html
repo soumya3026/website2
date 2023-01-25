@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'counselling/assets/css/main.css' %}" />
+        <script>
+			function disableEmptyInputs(form) {
+				var controls = form.elements;
+				for (var i=0, iLen=controls.length; i<iLen; i++) {
+				  controls[i].disabled = controls[i].value == '';
+				}
+			  }
+        </script>
+        <style>
+			#header{
+				padding-top: 0px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  <div class="dropdown-content">
+                          <a href="/accounts/student/profile">Profile</a>
+                          <a href="/accounts/student/change">Settings</a>
+                          <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/accounts/student/form">View Form</a></li>
+                                <li><a href="/accounts/student/fill">Dashboard</a></li>
+                                <li><a href="/accounts/student/counseling">Attend Counseling</a></li>
+							</ul>
+						</nav>
+			
+
+				</div>
+
+			<!-- Main -->
+            <section class="wrapper style1" style="padding-top: 1cm;">
+                <div class="container" style="margin-left:1cm;margin-right:0cm;width:95%;">
+                    <div id="content">
+
+                            <!-- Content -->
+                            
+                            <div style="background-color:whitesmoke;padding-left: 10px;width:100%;border-top:1px solid darkgray;border-bottom:1px solid darkgray;">
+								<span style="font-size:large"><a href="/accounts/student/fill" style="font-weight: bold;color:darkslategrey">Dashboard </a>&nbsp; > &nbsp;<a href="" style="font-weight: bold;color:darkslategrey"> Mid-2</a></span>
+                          </div>
+                          
+                            <h3 style="text-decoration: underline;text-align: center;">MID-2 MARKS</h3><br>
+							<form method="POST" action="mid2" onsubmit="disableEmptyInputs(this)">
+                                {% csrf_token %}
+                                
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <p style="margin: 5px;"><strong>Subjects</strong></p>
+                                        </td>
+                                        <td>
+                                            <p style="margin: 5px;"><strong>MID-2</strong></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="s1_name" placeholder="Subject-1" {% if m.s1_name == None %} {% else %} value="{{m.s1_name}}" disabled {% endif %}>
+                                        </td>
+                                       
+                                        <td>
+                                            <input type="text" id="ooad_theory2" name="theory1" placeholder="theory">
+                                            <input type="text" id="ooad_quiz2" name="quiz1" placeholder="quiz">
+                                            <input type="text" id="ooad_assignment2" name="assignment1" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="s2_name" placeholder="Subject-2" {% if m.s2_name == None %} {% else %} value="{{m.s2_name}}" disabled {% endif %}>
+                                        </td>
+                                       
+                                        <td>
+                                            <input type="text" id="cd_theory2" name="theory2" placeholder="theory">
+                                            <input type="text" id="cd_quiz2" name="quiz2" placeholder="quiz">
+                                            <input type="text" id="cd_assignment2" name="assignment2" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="s3_name" placeholder="Subject-3" {% if m.s3_name == None %} {% else %} value="{{m.s3_name}}" disabled {% endif %}>
+                                        </td>
+                                       
+                                        <td>
+                                            <input type="text" id="up_theory2" name="theory3" placeholder="theory">
+                                            <input type="text" id="up_quiz2" name="quiz3" placeholder="quiz">
+                                            <input type="text" id="up_assignment2" name="assignment3" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="s4_name" placeholder="Subject-4" {% if m.s4_name == None %} {% else %} value="{{m.s4_name}}" disabled {% endif %}>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="text" id="dbms_theory2" name="theory4" placeholder="theory">
+                                            <input type="text" id="dbms_quiz2" name="quiz4" placeholder="quiz">
+                                            <input type="text" id="dbms_assignment2" name="assignment4" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="text" name="s5_name" placeholder="Subject-5" {% if m.s5_name == None %} {% else %} value="{{m.s5_name}}" disabled {% endif %}>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="text" id="os_theory2" name="theory5" placeholder="theory">
+                                            <input type="text" id="os_quiz2" name="quiz5" placeholder="quiz">
+                                            <input type="text" id="os_assignment2" name="assignment5" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 30px;">
+                                            <input type="text" name="s6_name" placeholder="Subject-6" {% if m.s6_name == None %} {% else %} value="{{m.s6_name}}" disabled {% endif %}>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="text" id="theory6" name="theory6" placeholder="theory">
+                                            <input type="text" id="quiz6" name="quiz6" placeholder="quiz">
+                                            <input type="text" id="assignment6" name="assignment6" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 30px;">
+                                            <input type="text" name="s7_name" placeholder="Subject-7" {% if m.s7_name == None %} {% else %} value="{{m.s7_name}}" disabled {% endif %}>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="text" id="theory7" name="theory7" placeholder="theory">
+                                            <input type="text" id="quiz7" name="quiz7" placeholder="quiz">
+                                            <input type="text" id="assignment7" name="assignment7" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 30px;">
+                                            <input type="text" name="s8_name" placeholder="Subject-8" {% if m.s8_name == None %} {% else %} value="{{m.s8_name}}" disabled {% endif %}>
+                                        </td>
+                                        
+                                        <td>
+                                            <input type="text" id="theory8" name="theory8" placeholder="theory">
+                                            <input type="text" id="quiz8" name="quiz8" placeholder="quiz">
+                                            <input type="text" id="assignment8" name="assignment8" placeholder="assignment">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 30px;">
+                                            <input type="text" name="s9_name" placeholder="Subject-9" {% if m.s9_name == None %} {% else %} value="{{m.s9_name}}" disabled {% endif %}>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="theory9" name="theory9" placeholder="theory">
+                                            <input type="text" id="quiz9" name="quiz9" placeholder="quiz">
+                                            <input type="text" id="assignment9" name="assignment9" placeholder="assignment">
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top: 30px;">
+                                            <input type="text" name="s10_name" placeholder="Subject-10" {% if m.s10_name == None %} {% else %} value="{{m.s10_name}}" disabled {% endif %}>
+                                        </td>
+                                        <td>
+                                            <input type="text" id="theory10" name="theory10" placeholder="theory">
+                                            <input type="text" id="quiz10" name="quiz10" placeholder="quiz">
+                                            <input type="text" id="assignment10" name="assignment10" placeholder="assignment">
+                                        </td>
+                                        
+                                    </tr>
+                                </table><br><br>
+                                <input type="submit">
+                            </form>
+
+									
+
+						</div>
+					</div>
+				</section>
+			
+
+		
+    {% endblock %}
+	</body>
+</html>

@@ -1,0 +1,326 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href= "{% static 'counselling/assets/css/main.css' %}"/>
+	<title>GVPCEW</title>
+	<style>
+		input[type="text"]{
+			margin:0px;
+			width: 100%;
+			border:0px solid black;
+			text-align: center;
+			color: darkgreen;
+		 }
+
+		 input[type="checkbox"] {
+			border:1px solid black;
+			height: 15px;
+			width: 15px;
+				}
+
+		input[type=checkbox]:checked 
+				{
+					width: 8px;
+					border: solid black;
+					border-width: 0 3px 3px 0;
+					-webkit-transform: rotate(45deg);
+					-ms-transform: rotate(45deg);
+					transform: rotate(45deg);
+				}
+					#header{
+						padding-top: 0px;
+					}
+			
+	</style>
+	<script type="text/javascript">
+		
+
+		function myFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[0];
+			if (td) {
+			  txtValue = td.textContent || td.innerText;
+			  tr[0].style.display='';
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = "";
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			}       
+		  }
+		}
+		function fun(){ 
+
+			var inputs = document.querySelectorAll(".c1");
+			var j=document.querySelectorAll(".selectall");
+			for(var k=0;k<5;k++)
+			{
+				if(k == 0){
+				var inputs = document.querySelectorAll(".c1");
+                for (var i = 0; i < inputs.length; i++) { 
+					if (inputs[i].type == "checkbox") { 
+						if(j[0].checked)
+						inputs[i].checked = true; 
+						else
+						inputs[i].checked = false; 
+					}  
+				}  
+				}
+				
+
+				if(k == 1){
+					var inputs = document.querySelectorAll(".c2");
+					for (var i = 0; i < inputs.length; i++) { 
+						if (inputs[i].type == "checkbox") { 
+							if(j[1].checked)
+							inputs[i].checked = true; 
+							else
+							inputs[i].checked = false; 
+						}  
+					}  
+					}
+
+					if(k == 2){
+						var inputs = document.querySelectorAll(".c3");
+						for (var i = 0; i < inputs.length; i++) { 
+							if (inputs[i].type == "checkbox") { 
+								if(j[2].checked)
+								inputs[i].checked = true; 
+								else
+								inputs[i].checked = false; 
+							}  
+						}  
+						}
+
+						if(k == 3){
+							var inputs = document.querySelectorAll(".c4");
+							for (var i = 0; i < inputs.length; i++) { 
+								if (inputs[i].type == "checkbox") { 
+									if(j[3].checked)
+									inputs[i].checked = true; 
+									else
+									inputs[i].checked = false; 
+								}  
+							}  
+							}
+    
+							if(k == 4){
+								var inputs = document.querySelectorAll(".c5");
+								for (var i = 0; i < inputs.length; i++) { 
+									if (inputs[i].type == "checkbox") { 
+										if(j[4].checked)
+										inputs[i].checked = true; 
+										else
+										inputs[i].checked = false; 
+									}  
+								}  
+								}
+			}
+			
+		}
+
+  
+	
+		
+	</script>
+</head>
+<body>
+    {% block content %}
+    <body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  <div class="dropdown-content">
+							{% if request.user.is_staff is False %}
+							<a href="/accounts/faculty/fprofile">Profile</a>
+							{% endif %}
+						  <a href="/accounts/faculty/hchange">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/accounts/faculty/view_form">Students</a></li>
+                            {% if request.user.is_staff %}
+                            <li class="current"><a href="/accounts/faculty/status">Check Status</a></li>
+                            <li><a href="/accounts/faculty/update_sem">Update Semester</a></li>
+							<li><a href="/accounts/faculty/add_counsellor">Add Counsellors</a></li>
+                            {% endif %}
+						<!--
+                            	<li><a href="/accounts/faculty/grant_access">Grant Access</a></li>
+                        -->
+						</ul>
+					</nav>
+                </div>
+
+				<br><br>
+				<center>
+                	<input type="text" id="myInput" onkeyup="myFunction()" style="width:25%" placeholder="Search for Roll numbers.." title="Type in a rollnumber">
+                <br><br>
+				</center>
+				<section class="wrapper style1" style="padding-top: 50px;">
+					<div class="container">
+						<div id="content">
+
+							<form method="POST" action="status">
+								{% csrf_token %}
+                                 <table id='myTable' style="border-collapse: collapse;">
+									 <tr>
+										 <td style="width:5cm;">
+                                           <strong>Roll No.</strong>
+										 </td>
+										 <td style="width:5cm;">
+											 <strong>Counselling 1.</strong>
+										</td>
+										<td style="width:5cm;">
+											<strong>Counselling 2.</strong>
+										</td>
+										<td style="width:5cm;">
+											<strong>Counselling 3.</strong>
+										</td>
+										<td style="width:5cm;">
+											<strong>Counselling 4.</strong>
+										</td>
+										<td style="width:5cm;">
+											<strong>Counselling 5.</strong>
+										</td>
+									 </tr>
+									 <tr style="height: 0.7cm;">
+										<td>
+											<strong>Select all</strong>
+										</td>
+										<td>
+											<input type="checkbox" class="selectall" onchange="fun()">
+									   </td>
+									   <td>
+										<input type="checkbox"class="selectall" onchange="fun()">
+									   </td>
+									   <td>
+										<input type="checkbox" class="selectall" onchange="fun()">
+									   </td>
+									   <td>
+										<input type="checkbox" class="selectall" onchange="fun()">
+									   </td>
+									   <td>
+										<input type="checkbox" class="selectall" onchange="fun()">
+									   </td>
+									</tr>
+									{% for i in b %}
+
+									<tr>
+										<td>
+                                           {{i.roll_no}}
+										</td>
+										<td>
+											{% for j in b1 %}
+											{% if j.uname == i.uname %}
+											{% if j.c1_status == 'Completed' %}
+											<input type="text" value="Completed" name="{{i.uname}}1" disabled> 
+										    {% else %}
+											{% if j.c1_status == 'on' %}
+											<input type="checkbox" class="c1" name="{{i.uname}}1" checked>
+											{% else %}
+										<input type="checkbox" class="c1" name="{{i.uname}}1">
+										{% endif %}
+                                        {% endif %}
+										{% endif %}
+										{% endfor %}
+									   </td>
+									   <td>
+										{% for j in b1 %}
+											{% if j.uname == i.uname %}
+											{% if j.c2_status == 'Completed' %}
+											<input type="text" value="Completed" name="{{i.uname}}2" disabled> 
+										    {% else %}
+											{% if j.c2_status == 'on' %}
+											<input type="checkbox" class="c2" name="{{i.uname}}2" checked>
+											{% else %}
+										<input type="checkbox" class="c2" name="{{i.uname}}2">
+										{% endif %}
+										{% endif %}
+										{% endif %}
+										{% endfor %}
+									   </td>
+									   <td>
+										{% for j in b1 %}
+											{% if j.uname == i.uname %}
+											{% if j.c3_status == 'Completed' %}
+                                            <input type="text" value="Completed" name="{{i.uname}}3" disabled> 
+										    {% else %}
+											{% if j.c3_status == 'on' %}
+											<input type="checkbox" class="c3" name="{{i.uname}}3" checked>
+											{% else %}
+										<input type="checkbox" class="c3" name="{{i.uname}}3">
+										{% endif %}
+										{% endif %}
+										{% endif %}
+										{% endfor %}
+									   </td>
+									   <td>
+										{% for j in b1 %}
+											{% if j.uname == i.uname %}
+											{% if j.c4_status == 'Completed' %}
+                                            <input type="text" value="Completed" name="{{i.uname}}4" disabled> 
+										    {% else %}
+											{% if j.c4_status == 'on' %}
+											<input type="checkbox" class="c4" name="{{i.uname}}4" checked>
+											{% else %}
+										<input type="checkbox" class="c4" name="{{i.uname}}4">
+										{% endif %}
+										{% endif %}
+										{% endif %}
+										{% endfor %}
+									   </td>
+									   <td>
+										{% for j in b1 %}
+											{% if j.uname == i.uname %}
+											{% if j.c5_status == 'Completed' %}
+                                            <input type="text" value="Completed" name="{{i.uname}}5" disabled> 
+										    {% else %}
+											{% if j.c5_status == 'on' %}
+											<input type="checkbox" class="c5" name="{{i.uname}}5" checked>
+											{% else %}
+										<input type="checkbox" class="c5" name="{{i.uname}}5">
+										{% endif %}
+										{% endif %}
+										{% endif %}
+										{% endfor %}
+									   </td>
+									</tr>
+									{% endfor %}
+								 </table><br><br>
+								<input type="submit" value="save" name="save">
+							</form>
+							
+                        </div>
+                    </div>
+                </section>
+
+        
+    {% endblock %}
+</body>
+</html>

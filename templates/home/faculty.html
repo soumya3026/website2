@@ -1,0 +1,538 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Faculty</title>
+        <meta name="description" content="JNTUK affiliated">
+        <meta name="author" content="Soumya">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/fontello.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/icon-7-stroke/css/helper.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap-select.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/icheck.min_all.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/price-range.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.theme.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.transitions.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    </head>
+    <style>
+        *,
+*::before,
+*::after{
+    box-sizing: border-box;
+}
+
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+}
+body{
+    font-family: 'lato', sans-serif;
+    color: #929292;
+    font-weight: 300;
+    background: #ffffff;
+}
+a{
+    color: #929292;
+    font-weight: 400;
+    outline: none;
+    text-decoration: none;
+    transition: 0.5s;
+}
+a:hover,
+a:focus{
+    outline: none;
+    text-decoration: none;
+}
+p{
+    padding: 0;
+    margin: 0 0 15px 0;
+    color: #717070;
+    font-weight: 300;
+}
+
+img{
+    width: 100%;
+    height: auto;
+}
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.section-title{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 80px;
+    margin-top: 40px;
+    text-align: center;
+}
+.section-title h1{
+    display: inline-block;
+    font-size: 35px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #646363;
+    margin: 0 0 5px;
+    position: relative;
+}
+.section-title h1::before{
+    content: '';
+    left: 0;
+    position: absolute;
+    height: 3px;
+    right: 32%;
+    background-color: rgb(249, 224, 72);
+    bottom: -5px;
+
+}
+.container .section-title h1::before{
+    left: 30%;
+}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.column{
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.team{
+    margin-bottom:30px ;
+}
+.team .team-img{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+}
+.team .team-img img{
+    width: 160px;
+    height: auto;
+    border-radius: 100%;
+    border: 20px solid #f3f4fa;
+}
+
+.team .team-content{
+    padding: 80px 20px 20px 20px;
+    margin-top: -80px;
+    text-align: center;
+    background: #f3f4fa;
+    border-radius: 10px;
+}
+.team .team-content h2{
+font-size: 25px;
+font-weight: 400;
+letter-spacing: 2px;
+}
+.team .team-content h3{
+    font-size: 16px;
+    font-weight: 300;
+}
+.team .team-content h4{
+    font-size: 16px;
+font-weight: 300;
+letter-spacing: 1px;
+font-style: italic;
+margin-bottom: 0;
+}
+.team .team-content p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+.team .team-social{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 35px;
+    top: 0;
+    left:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, .6);
+    transition: all .3s;
+    font-size: 0;
+    z-index: 1;
+    opacity: 0;
+}
+.team:hover .team-social{
+    opacity: 1;
+}
+.team .team-social a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-right:5px ;
+    padding: 11px 0 10px 0;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    transition: all .3s;
+    margin-top: 50px;
+}
+.team .team-social a.social-tw{
+    background: #00acee;
+}
+.team .team-social a.social-fb{
+    background: #3b5998;
+}
+.team .team-social a.social-li{
+    background: #0e76a8;
+}
+.team .team-social a.social-in{
+    background: #3f729b;
+}
+.team .team-social a.social-yt{
+    background: #c4302b;
+}
+.team .team-social a:last-child{
+    margin-right: 0;
+}
+.team:hover .team-social a{
+    margin-top: 0;
+}
+.team .team-social a:hover{
+    background: #222222;
+}
+
+
+/* Mobile Responsive */
+
+@media (min-width: 576px){
+    .container{
+        max-width: 540px;
+    }
+    .column{
+        max-width: 50%;
+    }
+}
+@media (min-width: 768px){
+    .container{
+        max-width: 720px;
+    }
+    .column{
+        max-width: 33.333333%;
+    }
+}
+@media (min-width: 992px){
+    .container{
+        max-width: 960px;
+    }
+    .column{
+        max-width: 25%;
+    }
+}
+@media (min-width: 1200px){
+    .container{
+        max-width: 1140px;
+    }
+   
+}
+
+    </style>
+    <body>
+
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div>
+        <!-- Body content -->
+
+     
+        <!--End top header -->
+
+        <nav class="navbar navbar-default ">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header" style="margin-bottom:-50px;">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <center>
+                        <a class="navbar-brand" href="#" ><img src="/static/images/GVPCEW12.jpg" alt="logo" style='margin:10px;height:150px; width:10000px;'></a>
+                    </center>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse yamm" id="navigation" style="margin-top: 190px;">
+                    <center>
+                        <h1 style="text-shadow: 4px 4px 3px darkgrey; margin-bottom: 2px;margin-top: 7px;color: darkslategrey;">Information Retrieval Portal</h1>
+                    </center>
+                    {% if user.is_authenticated %}
+                    <div class="button navbar-right">
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.45s"><a href="/login/logout/">Logout</a></button>
+                        {% if user.is_faculty %}
+                            <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s"><a href="/qr_profile/">{{request.user.first_name}}</a></button>
+                        {% else %}
+                            <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s"><a href="/qr_profile/">{{request.user.username}}</a></button>
+                        {% endif %}
+                    </div>
+                    {% else %}
+                    <div class="button navbar-right">
+                        <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.45s"><a href="/login/signin/">Login</a></button>
+                    </div>
+                    {% endif %}
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li class="wow fadeInDown" data-wow-delay="0.2s"><a class="" href="/">Home</a></li>
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown active" data-delay="200">Clubs<b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="/cosengers/">COSENGERS</a>
+                                </li>
+                                <li>
+                                    <a href="/picsl/index/">PICSL</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown active" data-delay="200">CSE Department <b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="/dept_abt/">About</a>
+                                </li>
+                                <li>
+                                    <a href="/team/">Development Team</a>
+                                </li>
+                                <li>
+                                    <a href="/faculty/">Faculty</a>
+                                </li>
+                                <li>
+                                    <a href="/placements/">Placements</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+                       
+                        <li class="wow fadeInDown" data-hover="active" data-wow-delay="0.5s"><a href="/adminst/">Administration</a></li>
+                        {% if user.is_authenticated %}
+                        {% if request.user.is_staff is False %}
+                            <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/accounts/">My Counselling</a></li>
+                        {% endif %}
+                        {% if request.user.is_staff %}
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/accounts/faculty/admin_home">Counselling</a></li>
+                        <li class="dropdown ymm-sw " data-wow-delay="0.1s">
+                            <a href="/" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown active" data-delay="200">ADD<b class="caret"></b></a>
+                            <ul class="dropdown-menu navbar-nav">
+                                <li>
+                                    <a href="/add_achievement/">Add Achievement</a>
+                                </li>
+                                <li>
+                                    <a href="/add_faculty/">Update Faculty</a>
+                                </li>
+                                <li>
+                                    <a href="/add_news/">Add News</a>
+                                </li>
+                                <li>
+                                    <a href="/add_placement/">Add Placement</a>
+                                </li>
+                                <li>
+                                    <a href="/add_student/">Add Student/Faculty</a>
+                                </li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                        {% endif %}
+                        <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="/contact/">Contact</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+    <body>
+        <div class="container">
+            <div class="section-title">
+                <h1>Our Faculty</h1>
+            </div>
+    
+            <div class="row">
+                {% for faculty in f %}
+                <div class="column">
+                    <div class="team">
+                        <div class="team-img">
+                            <img src="{{faculty.img.url}}" alt="Team Image" style="width:140px;height: 160px;">
+                        </div>
+                        <div class="team-content">
+                            <h3>{{faculty.name}}</h3>
+                            <h3>{{faculty.desig}}</h3>
+                            <p>{{faculty.qualif}}</p>
+                            <p>{{faculty.email}}</p>
+                           
+                        </div>
+                        <div class="team-social">
+                            <a href="{{faculty.resume.url}}" style="background-color:#929292" target="_blank"><i class="fa fa-file-pdf-o" ></i></a>
+                            {% if user.is_staff %}
+                            <form method="POST" action="{% url 'home:delete_fac' faculty.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" style="background-color:maroon;color: white;"><a><i class="	fa fa-remove"></i></a></button>
+                            </form>
+                            
+                            {% endif %}
+                            <form method="POST" action="{% url 'qr_profile:resum' faculty.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" style="background-color:rgb(219, 107, 107);"><a><i class="fa fa-at" color="white"></i></a></button>
+                        </form>
+                        </div>
+                        
+                       
+                    </div>
+                    
+                </div>
+                 {% endfor %}
+    
+                 
+            </div>
+    
+        </div>
+         <!-- Footer area-->
+         <div class="footer-area">
+
+            <div class=" footer">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>About us </h4>
+                                <div class="footer-title-line"></div>
+
+                                <img src="" alt="" class="wow pulse" data-wow-delay="1s">
+                                <p></p>
+                                <ul class="footer-adress">
+                                    <li><i class="pe-7s-map-marker strong"> </i>Survey No4, Kommadi, Junction, Madhurawada, Visakhapatnam, Andhra Pradesh 530048</li>
+                                    <li><i class="pe-7s-mail strong"> </i> gvpcew@gmail.com</li>
+                                    <li><i class="pe-7s-call strong"> </i> +0 891 273 9144</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Quick links </h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-menu">
+                                    <li><a href="/faculty/">Administration</a>  </li> 
+                                    <li><a href="/placements/">Placements</a>  </li>
+                                    <li><a href="http://www.gvpcew.net/moodle/">LMS</a>  </li> 
+                                    <li><a href="/">CSE Department</a></li> 
+                                     
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer">
+                                <h4>Last News</h4>
+                                <div class="footer-title-line"></div>
+                                <ul class="footer-blog">
+                                    {% for news in n %}
+                                    <li>
+                                       
+                                        <div class="col-md-8  col-sm-8 col-xs-8  blg-entry">
+                                            <h6> <a href="{{news.url}}">{{news.title}}</a></h6> 
+                                            <p style="line-height: 17px; padding: 8px 2px;">{{news.date}}</p>
+                                        </div>
+                                    </li> <br>
+                                    {% endfor %}
+                                  
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6 wow fadeInRight animated">
+                            <div class="single-footer news-letter">
+                                <h4>Stay in touch</h4>
+                                <div class="footer-title-line"></div>
+                                <p>Reach us whenever required</p>
+
+                                <form>
+                                    <div class="input-group">
+                                        <input class="form-control" type="text" placeholder="E-mail ... ">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-primary subscribe" type="button"><i class="pe-7s-paper-plane pe-2x"></i></button>
+                                        </span>
+                                    </div>
+                                    <!-- /input-group -->
+                                </form> 
+
+                                <div class="social pull-right"> 
+                                    <ul>
+                                        <li><a class="wow fadeInUp animated" href="https://twitter.com/Gvpcew_JG"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://www.facebook.com/kimarotec" data-wow-delay="0.2s"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://plus.google.com/kimarotec" data-wow-delay="0.3s"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.4s"><i class="fa fa-instagram"></i></a></li>
+                                        <li><a class="wow fadeInUp animated" href="https://instagram.com/kimarotec" data-wow-delay="0.6s"><i class="fa fa-dribbble"></i></a></li>
+                                    </ul> 
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-copy text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="pull-left">
+                            <span> (C) <a href="http://www.KimaroTec.com">GVPCEW</a> , All rights reserved 2022  </span> 
+                        </div> 
+                        <div class="bottom-menu pull-right"> 
+                            <ul> 
+                                <li><a class="wow fadeInUp animated" href="/" data-wow-delay="0.2s">Home</a></li>
+                                <li><a class="wow fadeInUp animated" href="/contact/" data-wow-delay="0.6s">Contact</a></li>
+                            </ul> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <script src="{% static 'assets/js/modernizr-2.6.2.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery-1.10.2.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap-hover-dropdown.js' %}"></script>
+        <script src="{% static 'assets/js/easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'assets/js/wow.js' %}"></script>
+        <script src="{% static 'assets/js/icheck.min.js' %}"></script>
+        <script src="{% static 'assets/js/price-range.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </body>
+</html>

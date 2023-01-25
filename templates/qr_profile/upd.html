@@ -1,0 +1,227 @@
+
+<html>
+    {% load static %}
+<head>
+
+<!-- RESPONSIVE THING -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- TITLE & DESCRIPTION -->
+<title>Check!</title>
+<meta name="description" content="A nice template sold on Creative Market">
+<meta name="keywords" content="linktree, personal, simple, minimal, template, links">
+
+<!-- FAVICON -->
+<link rel="icon" href="https://pbs.twimg.com/profile_images/1028344178294419456/UM_bdwXQ_400x400.jpg" />
+
+<!-- FONTS -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900" rel="stylesheet">
+
+<!-- STYLE -->
+<link rel='stylesheet' href='css/style.css'>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<!-- SCRIPTS AND STUFF -->
+<script>
+    cloudinary.imageTag('{{ photo.image.url }}', {width: 70, height: 53, crop: "scale"}).toHtml();
+    </script>
+</head>
+<style>
+    *{
+    margin:0;padding: 0;
+}
+body{
+    background-color: aquamarine;
+}
+
+.card{
+    text-align: center;
+    border-radius: 10px;
+    padding:5px;
+    background-color: black;
+}
+	html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    text-align: left;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+}
+.wrapper {
+	width: 1170px;
+	margin: auto;
+}
+.nav-area {
+	float: right;
+	list-style: none;
+	margin-top: 30px;
+}
+.nav-area li {
+	display: inline-block;
+}
+.nav-area li a {
+	color: rgb(14, 8, 8);
+	text-decoration: none;
+	padding: 5px 20px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+.nav-area li a:hover {
+	background: rgb(209, 139, 139);
+	color: #333;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 19px;
+    color: #333;
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 17px;
+    line-height: 1.4;
+    color: #333;
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+small {
+    font-size: 16px;
+    color: #333;
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    font-family: Montserrat, Helvetica, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    color: #777;
+}
+
+/* EDIT DESCRIPTION LINK COLOR */
+a:hover {
+    color: #0d96e5;
+}
+
+.section {
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    margin: 0 auto;
+    background: #fff;
+}
+
+
+.center-align {
+    text-align: center;
+}
+
+.white {
+    color: #fff;
+}
+
+.light-grey {
+    color: #ccc;
+}
+
+
+.button {
+    background: #0d96e5;
+    opacity: .9;
+    padding: 20px;
+    margin: 10px auto;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.padding-top-50 {
+    padding-top: 50px;
+}
+.padding-bottom-50 {
+    padding-bottom: 50px;
+}
+.padding-bottom-100 {
+    padding-bottom: 100px;
+}
+.padding-top-25 {
+    padding-top: 25px;
+}
+.padding-top-15 {
+    padding-top: 15px;
+}
+
+@media (max-width: 768px) {
+    
+}
+</style>
+<body>
+    <div class="wrapper">
+        <!-- <div class="logo">
+            <img src="https://i.postimg.cc/mg4rWBmv/logo.png" alt="">
+        </div> -->
+  <ul class="nav-area">
+  <li><a href="/qr_profile/">Home</a></li>
+  </ul>
+  </div>
+<div class="section padding-top-50 padding-bottom-50 center-align">
+	
+	<h1 class="padding-top-15">Hey, {{data}}</h1>
+	<h2 class="padding-top-15">Wanna change!.</h2>
+</div>
+
+<div class="section padding-bottom-50 center-align">
+    {% for i in l %}
+    <a href="{{i.image.url}}" target="_blank"><div class="button"><p class="white">{{i.title}}</p></div></a>
+
+    <div style="display: flex;">
+        <a href="/qr_profile/upd/{{i.image.id}}" target="_blank"><div class="button"><p class="white">Update</p></div></a>
+        <a href="" target="_blank"><div class="button"><p class="white">Delete</p></div></a>
+    </div>
+
+    {% endfor %}
+    <a href="/qr_profile/gen/">GENERATE QR</a>
+
+</div>
+</body>
+
+<script>
+</script>
+
+</html>

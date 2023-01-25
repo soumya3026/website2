@@ -1,0 +1,180 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PICSL club</title>
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.png' %}" type="image/x-icon">
+
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'picsl/css/style.css' %}" />
+
+    <style>
+        body
+        {
+          background-image: url(https://p4.wallpaperbetter.com/wallpaper/285/939/590/light-background-wallpaper-preview.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed; 
+        }
+        .nav-link:hover{
+            background-color: #384359 !important;
+          }
+    </style>
+</head>
+
+<body>
+
+<header class="continer-fluid ">
+    <div  class="header-top">
+        <div class="container">
+            <div class="row col-det">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <ul class="ulleft">
+                        <li>
+                            <i class="far fa-envelope"></i>
+                               picsl@gvpcew.ac.in
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="menu-jk" class="header-bottom">
+        <div >
+            <div class="row nav-row" style="padding-left: 250px;">
+                <div class="logo">
+                    <a href="/picsl/index">
+                        <img src="/static/images/picsl logo.jpg" width="100px" alt=""><a style="font-size: 30px; "><b style="font-family:'Times New Roman', Times, serif">PICSL - Programmers,Innovaters,Coders Society of Learning</b></a>
+                            <img src="/static/images/collegelogo.jpg" style="width: 100px;height: 100px;float:right">
+                                
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                    </a>
+                </div>
+            </div>
+            <div class="row nav-row">
+                <div id="menu" class="col-lg-10 col-md-12 d-none d-lg-block nav-col">
+
+                            <ul class="navbad">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/picsl/index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/events">Events</a>
+                                </li>
+                                <li class="nav-item" >
+                                  <a class="nav-link" href="/picsl/about_us">About Us</a>
+                              </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/blogs">blogs</a>
+                                </li>-->
+                                {% if pic %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/add_evn">Upload Event Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_events">Upload Events</a>
+                                </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_blogs">Upload Blogs</a>
+                                </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login/logout/">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="float: right;">Main Page</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+</header>
+  
+                 
+  <!-- ******************** Slider Starts Here ******************* -->
+   
+ <!--  ************************* About Us Starts Here **************************     
+       
+ <div class="about-us container-fluid">
+    <div class="container">
+
+        <div class="row natur-row no-margin w-100">
+            <div class="text-part col-md-6">
+                <h2>About Our Club</h2>
+                <p>The Programming Club of GVPCEW is proposed with the overt aim to develop the coding faculties of students by encouraging them to give a stage to implement their ideologies through various activities. The campaigns of this club are planned to test the independent intellects of the members and the clique as a whole and impart these values to the student community.
+                The capabilities inherent in the students need to be inhabitantly brought out to give flair to their practical aptitude. </p>
+            </div>
+        </div>
+    </div>
+</div>      
+   
+-->
+    
+ <!-- ################# Mission Vision Start Here #######################-
+  
+ <section class="container-fluid mission-vision">
+    <div class="container">
+        <div class="row mission">
+            <div class="col-md-6 mv-det">
+                <h1>Our Objectives</h1>
+                The objectives of the Programming club include
+                <ul>
+                  <li>Regulation of programming practice sessions by final year students to their juniors weekly.</li>
+                  <li>Administration of Python Programming training to other department students by CSE final years.</li>
+                  <li>Inform the community of ongoing global and national coding events such as hackathons, fests and talks.</li>
+                  <li>Organize regular contests to refine potential of the members.</li>
+                  <li>Appraise cognitive capabilities by assigning a problem periodically through Discord.</li>
+                </ul>
+              </div>
+            <div class="col-md-6 mv-img">
+                <img src="{% static 'picsl/images/misin.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>   
+-->
+
+    
+     <!-- ################# Events Start Here#######################--->
+            
+    <section>
+        <div class="" style="margin:50px;font-family: Lucida Handwriting;">
+            <center>
+            <h2>{{evnt.title}}</h2>
+            </center>
+            <p style="float:right;color: blue;padding-left:80%">{{evnt.fromdate}} to {{evnt.todate}}</p>
+            <br><br>
+            <p><b>About the Event -- </b>{{evnt.desc|linebreaksbr}}</p>
+      
+          </div>
+          <br>
+
+          <div class="row row-cols-3" style="padding:100px;padding-top:0px;line-height:10px;">
+            <img class="col-lg-4" src="{{evnt.img1.url}}">
+            <img class="col-sm-4" src="{{evnt.img2.url}}">
+            <img class="col-sm-4" src="{{evnt.img3.url}}">
+        </div>
+    </section>
+    
+</body>
+
+<script src="{% static 'picsl/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'picsl/js/popper.min.js' %}"></script>
+<script src="{% static 'picsl/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'picsl/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+<script src="{% static 'picsl/plugins/slider/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'picsl/js/script.js' %}"></script>
+
+</html>

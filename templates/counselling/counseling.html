@@ -1,0 +1,515 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{% static 'counselling/assets/css/main.css' %}" />
+        <style>
+			.c1
+			{
+				width: 100% !important;
+				margin:0% !important;
+				border: none !important;
+				border-radius: 0% !important;
+				background-color:inherit !important;
+            }
+           
+                #header{
+                    padding-top: 0px;
+                }
+            
+        </style>
+        <script>
+			function disableEmptyInputs(form) {
+				var controls = form.elements;
+				for (var i=0, iLen=controls.length; i<iLen; i++) {
+				  controls[i].disabled = controls[i].value == '';
+				}
+			  }
+		</script>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  <div class="dropdown-content">
+                          <a href="/accounts/student/profile">Profile</a>
+                          <a href="/accounts/student/change">Settings</a>
+                          <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/accounts/student/form">View Form</a></li>
+							<li><a href="/accounts/student/fill">Dashboard</a></li>
+							<li class="current"><a href="/accounts/student/counseling">Attend Counseling</a></li>
+						</ul>
+					</nav>
+
+				</div>
+
+			<!-- Main -->
+            <section class="wrapper style1" style="padding-top: 50px;">
+					<div class="container">
+						<div id="content">
+							<!-- Content -->
+							<div>
+                                <h3>{{y}}-{{s}} SEMESTER COUNSELLING SHEET</h3>
+                                <table style="border-collapse: collapse;">
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;width:8cm;">
+                                           <strong>INTERACTION NO.</strong>
+                                        </td>
+                                        <td style="width: 3cm;">
+                                            <strong>1</strong>
+                                        </td>
+                                        <td style="width: 3cm;">
+                                            <strong>2</strong>
+                                        </td>
+                                        <td style="width: 3cm;">
+                                            <strong>3</strong>
+                                        </td>
+                                        <td style="width: 3cm;">
+                                            <strong>4</strong>
+                                        </td>
+                                        <td style="width: 3cm;">
+                                            <strong>5</strong>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>Proficiency in English</strong>
+                                        </td>
+                                         <td>
+                                             {{ b5.c1_eng }}
+                                        </td>
+                                        <td>
+                                            {{ b5.c2_eng }}
+                                        </td>
+                                        <td>
+                                            {{ b5.c3_eng }}
+                                        </td>
+                                        <td>
+                                            {{ b5.c4_eng }}
+                                        </td>
+                                        <td>
+                                            {{ b5.c5_eng }}
+                                        </td>
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>Proficiency in Mother Tongue</strong>
+                                        </td>
+                                        <td>
+                                            {{ b5.c1_mt }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c2_mt }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c3_mt }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c4_mt }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c5_mt }}
+                                       </td>
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>Confidence level in Interaction</strong>
+                                       </td>
+                                       <td>
+                                        {{ b5.c1_conf }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c2_conf }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c3_conf }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c4_conf }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c5_conf }}
+                                   </td>
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>General Knowledge</strong>
+                                       </td>
+                                       <td>
+                                        {{ b5.c1_knowledge }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c2_knowledge }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c3_knowledge }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c4_knowledge }}
+                                   </td>
+                                   <td>
+                                       {{ b5.c5_knowledge }}
+                                   </td>
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>General Health</strong>
+                                        </td>
+                                        <td>
+                                            {{ b5.c1_health }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c2_health }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c3_health }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c4_health }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c5_health }}
+                                       </td>
+                                    </tr>
+                                    <tr style="height:0.7cm;">
+                                        <td style="text-align: left;padding-left:0.5cm;">
+                                            <strong>Relation with Peer Group</strong>
+                                        </td>
+                                        <td>
+                                            {{ b5.c1_relation }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c2_relation }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c3_relation }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c4_relation }}
+                                       </td>
+                                       <td>
+                                           {{ b5.c5_relation }}
+                                       </td>
+                                    </tr>
+                                </table>
+                                <br><br>
+                                
+                                <form method="POST" action="counseling" onsubmit="disableEmptyInputs(this)">
+                                    {% csrf_token %}
+                                <table style="border-collapse: collapse;">
+                                   <tr style="height:1cm;">
+                                       <td style="text-align: center;width:2.5cm" rowspan="2">
+                                             <strong>Interaction No.</strong>
+                                       </td>
+                                        <td style="text-align: center;width:5cm" rowspan="2">
+                                                <strong>Counselling Date&Time</strong>
+                                                <span style="font-size: 17px;">(to be filled by the faculty)</span>
+                                        </td>
+                                        <td style="text-align: center;" colspan="3">
+                                                <strong>Difficulties during Semester</strong>
+                                        </td>
+                                        
+                                      <td style="text-align: center;width:5.5cm" rowspan="2">
+                                           <strong>Suggestions</strong><br>
+                                           <span style="font-size: 17px;">(to be filled by the faculty)</span>
+                                      </td>
+                                    
+                                   </tr>
+
+                                   <tr style="height:1cm;">
+                                 <td>
+                                       <strong>General</strong> 
+                                 </td>
+                                 <td>
+                                        <strong>Studies</strong>
+                                 </td>
+                                 <td>
+                                        <strong>Health</strong>
+                                 </td>
+                                
+                                </tr>
+
+                                <tr style="height:1cm;">
+                                    <td>
+                                            <strong>1.</strong>
+                                    </td>
+                                    <td>
+                                        {% if b5.c1_datetime != None %}
+                                        {{b5.c1_datetime}}
+                                        {% endif %}
+                                 </td>
+                                 <td>
+                                     {% if b6.c1_general %}
+                                    <textarea  name="gprob1" class="c1" rows="5" disabled>{{b6.c1_general}}</textarea>
+                                    {% else %}
+                                    {% if b7.c1_status == 'on' %}
+                                    <textarea  name="gprob1" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c1_general}}</textarea>
+                                    {% else %}
+                                    <textarea  name="gprob1" class="c1" rows="5" disabled>{{b6.c1_general}}</textarea>
+                                    {% endif %}
+                                    {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c1_studies %}
+                                    <textarea  name="sprob1" class="c1" rows="5" disabled>{{b6.c1_studies}}</textarea>
+                                    {% else %}
+                                    {% if b7.c1_status == 'on' %}
+                                    <textarea  name="sprob1" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c1_studies}}</textarea>
+                                    {% else %}
+                                    <textarea  name="sprob1" class="c1" rows="5" disabled>{{b6.c1_studies}}</textarea>
+                                    {% endif %}
+                                    {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c1_health %}
+                                    <textarea name="hprob1" class="c1" rows="5" disabled>{{b6.c1_health}}</textarea>
+                                    {% else %}
+                                    {% if b7.c1_status == 'on' %}
+                                    <textarea  name="hprob1" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c1_health}}</textarea>
+                                    {% else %}
+                                    <textarea  name="hprob1" class="c1" rows="5" disabled>{{b6.c1_health}}</textarea>
+                                    {% endif %}
+                                    {% endif %}
+                                 </td>
+                                 <td>
+                                    <textarea rows="5" class="c1" disabled>{{b5.c1_sugg}}</textarea>
+                                 </td>
+                                 
+                                </tr>
+
+                                <tr style="height:1cm;">
+                                    <td>
+                                        <strong>2.</strong>
+                                    </td>
+                                    <td>
+                                        {% if b5.c2_datetime != None %}
+                                        {{b5.c2_datetime}}
+                                        {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c2_general %}
+                                   <textarea  name="gprob2" class="c1" rows="5" disabled>{{b6.c2_general}}</textarea>
+                                   {% else %}
+                                   {% if b7.c2_status == 'on' %}
+                                    <textarea  name="gprob2" class="c1" rows="5" required placeholder="Enter Here..." placeholder="Enter Here...">{{b6.c2_general}}</textarea>
+                                    {% else %}
+                                    <textarea  name="gprob2" class="c1" rows="5" disabled>{{b6.c2_general}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c2_studies %}
+                                   <textarea  name="sprob2" class="c1" rows="5" disabled>{{b6.c2_studies}}</textarea>
+                                   {% else %}
+                                   {% if b7.c2_status == 'on' %}
+                                    <textarea  name="sprob2" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c2_studies}}</textarea>
+                                    {% else %}
+                                    <textarea  name="sprob2" class="c1" rows="5" disabled>{{b6.c2_studies}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c2_health %}
+                                   <textarea name="hprob2" class="c1" rows="5" disabled>{{b6.c2_health}}</textarea>
+                                   {% else %}
+                                   {% if b7.c2_status == 'on' %}
+                                    <textarea  name="hprob2" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c2_health}}</textarea>
+                                    {% else %}
+                                    <textarea  name="hprob2" class="c1" rows="5" disabled>{{b6.c2_health}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                 <td>
+                                    <textarea rows="5" class="c1" disabled>{{b5.c2_sugg}}</textarea>
+                                 </td>
+                                
+                                </tr>
+
+                                <tr style="height:1cm;">
+                                    <td>
+                                        <strong>3.</strong>
+                                    </td>
+                                    <td>
+                                        {% if b5.c3_datetime != None %}
+                                        {{b5.c3_datetime}}
+                                        {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c3_general %}
+                                   <textarea  name="gprob3" class="c1" rows="5" disabled>{{b6.c3_general}}</textarea>
+                                   {% else %}
+                                   {% if b7.c3_status == 'on' %}
+                                    <textarea  name="gprob3" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c3_general}}</textarea>
+                                    {% else %}
+                                    <textarea  name="gprob3" class="c1" rows="5" disabled>{{b6.c3_general}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c3_studies %}
+                                   <textarea  name="sprob3" class="c1" rows="5" disabled>{{b6.c3_studies}}</textarea>
+                                   {% else %}
+                                   {% if b7.c3_status == 'on' %}
+                                    <textarea  name="sprob3" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c3_studies}}</textarea>
+                                    {% else %}
+                                    <textarea  name="sprob3" class="c1" rows="5" disabled>{{b6.c3_studies}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c3_health %}
+                                   <textarea name="hprob3" class="c1" rows="5" disabled>{{b6.c3_health}}</textarea>
+                                   {% else %}
+                                   {% if b7.c3_status == 'on' %}
+                                    <textarea  name="hprob3" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c3_health}}</textarea>
+                                    {% else %}
+                                    <textarea  name="hprob3" class="c1" rows="5" disabled>{{b6.c3_health}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                 <td>
+                                    <textarea rows="5" class="c1" disabled>{{b5.c3_sugg}}</textarea>
+                                 </td>
+                                
+                                </tr>
+
+                                <tr style="height:1cm;">
+                                    <td>
+                                        <strong>4.</strong>
+                                    </td>
+                                    <td>
+                                        {% if b5.c4_datetime != None %}
+                                        {{b5.c4_datetime}}
+                                        {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c4_general %}
+                                   <textarea  name="gprob4" class="c1" rows="5" disabled>{{b6.c4_general}}</textarea>
+                                   {% else %}
+                                   {% if b7.c4_status == 'on' %}
+                                    <textarea  name="gprob4" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c4_general}}</textarea>
+                                    {% else %}
+                                    <textarea  name="gprob4" class="c1" rows="5" disabled>{{b6.c4_general}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c4_studies %}
+                                   <textarea  name="sprob4" class="c1" rows="5" disabled>{{b6.c4_studies}}</textarea>
+                                   {% else %}
+                                   {% if b7.c4_status == 'on' %}
+                                    <textarea  name="sprob4" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c4_studies}}</textarea>
+                                    {% else %}
+                                    <textarea  name="sprob4" class="c1" rows="5" disabled>{{b6.c4_studies}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c4_health %}
+                                   <textarea name="hprob4" class="c1" rows="5" disabled>{{b6.c4_health}}</textarea>
+                                   {% else %}
+                                   {% if b7.c4_status == 'on' %}
+                                    <textarea  name="hprob4" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c4_health}}</textarea>
+                                    {% else %}
+                                    <textarea  name="hprob4" class="c1" rows="5" disabled>{{b6.c4_health}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                 <td>
+                                    <textarea rows="5" class="c1" disabled>{{b5.c4_sugg}}</textarea>
+                                 </td>
+                                
+                                </tr>
+
+                                <tr style="height:1cm;">
+                                    <td>
+                                        <strong>5.</strong>
+                                    </td>
+                                    <td>
+                                        {% if b5.c5_datetime != None %}
+                                        {{b5.c5_datetime}}
+                                        {% endif %}
+                                 </td>
+                                 <td>
+                                    {% if b6.c5_general %}
+                                   <textarea  name="gprob5" class="c1" rows="5" disabled>{{b6.c5_general}}</textarea>
+                                   {% else %}
+                                   {% if b7.c5_status == 'on' %}
+                                    <textarea  name="gprob5" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c5_general}}</textarea>
+                                    {% else %}
+                                    <textarea  name="gprob5" class="c1" rows="5" disabled>{{b6.c5_general}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c5_studies %}
+                                   <textarea  name="sprob5" class="c1" rows="5" disabled>{{b6.c5_studies}}</textarea>
+                                   {% else %}
+                                   {% if b7.c5_status == 'on' %}
+                                    <textarea  name="sprob5" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c5_studies}}</textarea>
+                                    {% else %}
+                                    <textarea  name="sprob5" class="c1" rows="5" disabled>{{b6.c5_studies}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                <td>
+                                   {% if b6.c5_health %}
+                                   <textarea name="hprob5" class="c1" rows="5" disabled>{{b6.c5_health}}</textarea>
+                                   {% else %}
+                                   {% if b7.c5_status == 'on' %}
+                                    <textarea  name="hprob5" class="c1" rows="5" required placeholder="Enter Here...">{{b6.c5_health}}</textarea>
+                                    {% else %}
+                                    <textarea  name="hprob5" class="c1" rows="5" disabled>{{b6.c5_health}}</textarea>
+                                    {% endif %}
+                                   {% endif %}
+                                </td>
+                                 <td>
+                                    <textarea rows="5" class="c1" disabled>{{b5.c5_sugg}}</textarea>
+                                 </td>
+                                 
+                                </tr>
+                                </table>
+                                <br><br>
+                                <input type="submit">
+                            </form>
+						
+	                        </div>
+						</div>
+					</div>
+			</section>
+
+			
+		
+    {% endblock %}
+	</body>
+</html>

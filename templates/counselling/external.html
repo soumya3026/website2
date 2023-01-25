@@ -1,0 +1,457 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'counselling/assets/css/main.css' %}" />
+		<script>
+			const dic="{{ex1|safe}}";  /*to recieve the string as it is*/
+            const dic1=JSON.parse(dic.replace(/'/g,"\""));    /*conversion of string to dictionary*/
+		function disableEmptyInputs(form) {
+			var controls = form.elements;
+			for (var i=0, iLen=controls.length; i<iLen; i++) {
+			  controls[i].disabled = controls[i].value == '';
+			}
+		  }
+		function func()
+		{
+			a = document.getElementById('attempt').value;
+
+			if(a=='1'){
+                var s1 = document.getElementById('e_theory1');
+				s1.disabled=false;
+
+				var s2 = document.getElementById('e_theory2');
+				s2.disabled=false;
+
+				var s3 = document.getElementById('e_theory3');
+				s3.disabled=false;
+
+				var s4 = document.getElementById('e_theory4');
+				s4.disabled=false;
+
+				var s5 = document.getElementById('e_theory5');
+				s5.disabled=false;
+
+				var s6 = document.getElementById('e_theory6');
+				s6.disabled=false;
+
+				var s7 = document.getElementById('e_theory7');
+				s7.disabled=false;
+
+				var s8 = document.getElementById('e_theory8');
+				s8.disabled=false;
+
+				var s9 = document.getElementById('e_theory9');
+				s9.disabled=false;
+
+				var s10 = document.getElementById('e_theory10');
+				s10.disabled=false;
+			}
+
+			if(a=='2'){
+				
+				var s1 = document.getElementById('e_theory1');
+                s1.disabled = dic1['s1_g1'] == 'F' ? false : true;
+
+				var s2 = document.getElementById('e_theory2');
+                s2.disabled = dic1['s2_g1'] == 'F' ? false : true;
+
+				var s3 = document.getElementById('e_theory3');
+                s3.disabled = dic1['s3_g1'] == 'F' ? false : true;
+
+				var s4 = document.getElementById('e_theory4');
+                s4.disabled = dic1['s4_g1'] == 'F' ? false : true;
+
+				var s5 = document.getElementById('e_theory5');
+                s5.disabled = dic1['s5_g1'] == 'F' ? false : true;
+
+				var s6 = document.getElementById('e_theory6');
+                s6.disabled = dic1['s6_g1'] == 'F' ? false : true;
+
+				var s7 = document.getElementById('e_theory7');
+                s7.disabled = dic1['s7_g1'] == 'F' ? false : true;
+
+				var s8 = document.getElementById('e_theory8');
+                s8.disabled = dic1['s8_g1'] == 'F' ? false : true;
+
+				var s9 = document.getElementById('e_theory9');
+                s9.disabled = dic1['s9_g1'] == 'F' ? false : true;
+
+				var s10 = document.getElementById('e_theory10');
+                s10.disabled = dic1['s10_g1'] == 'F' ? false : true;
+			}
+
+			if(a=='3'){
+				var s1 = document.getElementById('e_theory1');
+                s1.disabled = dic1['s1_g2'] == 'F' ? false : true;
+
+				var s2 = document.getElementById('e_theory2');
+                s2.disabled = (dic1['s2_g2'] == 'F') ? false : true;
+
+				var s3 = document.getElementById('e_theory3');
+                s3.disabled = dic1['s3_g2'] == 'F' ? false : true;
+
+				var s4 = document.getElementById('e_theory4');
+                s4.disabled = dic1['s4_g2'] == 'F' ? false : true;
+
+				var s5 = document.getElementById('e_theory5');
+                s5.disabled = dic1['s5_g2'] == 'F' ? false : true;
+
+				var s6 = document.getElementById('e_theory6');
+                s6.disabled = dic1['s6_g2'] == 'F' ? false : true;
+
+				var s7 = document.getElementById('e_theory7');
+                s7.disabled = dic1['s7_g2'] == 'F' ? false : true;
+
+				var s8 = document.getElementById('e_theory8');
+                s8.disabled = dic1['s8_g2'] == 'F' ? false : true;
+
+				var s9 = document.getElementById('e_theory9');
+                s9.disabled = dic1['s9_g2'] == 'F' ? false : true;
+
+				var s10 = document.getElementById('e_theory10');
+                s10.disabled = dic1['s10_g2'] == 'F' ? false : true;
+			}
+
+			if(a=='4'){
+				var s1 = document.getElementById('e_theory1');
+                s1.disabled = dic1['s1_g3'] == 'F' ? false : true;
+
+				var s2 = document.getElementById('e_theory2');
+                s2.disabled = dic1['s2_g3'] == 'F' ? false : true;
+
+				var s3 = document.getElementById('e_theory3');
+                s3.disabled = dic1['s3_g3'] == 'F' ? false : true;
+
+				var s4 = document.getElementById('e_theory4');
+                s4.disabled = dic1['s4_g3'] == 'F' ? false : true;
+
+				var s5 = document.getElementById('e_theory5');
+                s5.disabled = dic1['s5_g3'] == 'F' ? false : true;
+
+				var s6 = document.getElementById('e_theory6');
+                s6.disabled = dic1['s6_g3'] == 'F' ? false : true;
+
+				var s7 = document.getElementById('e_theory7');
+                s7.disabled = dic1['s7_g3'] == 'F' ? false : true;
+
+				var s8 = document.getElementById('e_theory8');
+                s8.disabled = dic1['s8_g3'] == 'F' ? false : true;
+
+				var s9 = document.getElementById('e_theory9');
+                s9.disabled = dic1['s9_g3'] == 'F' ? false : true;
+
+				var s10 = document.getElementById('e_theory10');
+                s10.disabled = dic1['s10_g3'] == 'F' ? false : true;
+			}
+
+			if(a=='5'){
+				var s1 = document.getElementById('e_theory1');
+                s1.disabled = dic1['s1_g4'] == 'F' ? false : true;
+
+				var s2 = document.getElementById('e_theory2');
+                s2.disabled = dic1['s2_g4'] == 'F' ? false : true;
+
+				var s3 = document.getElementById('e_theory3');
+                s3.disabled = dic1['s3_g4'] == 'F' ? false : true;
+
+				var s4 = document.getElementById('e_theory4');
+                s4.disabled = dic1['s4_g4'] == 'F' ? false : true;
+
+				var s5 = document.getElementById('e_theory5');
+                s5.disabled = dic1['s5_g4'] == 'F' ? false : true;
+
+				var s6 = document.getElementById('e_theory6');
+                s6.disabled = dic1['s6_g4'] == 'F' ? false : true;
+
+				var s7 = document.getElementById('e_theory7');
+                s7.disabled = dic1['s7_g4'] == 'F' ? false : true;
+
+				var s8 = document.getElementById('e_theory8');
+                s8.disabled = dic1['s8_g4'] == 'F' ? false : true;
+
+				var s9 = document.getElementById('e_theory9');
+                s9.disabled = dic1['s9_g4'] == 'F' ? false : true;
+
+				var s10 = document.getElementById('e_theory10');
+                s10.disabled = dic1['s10_g4'] == 'F' ? false : true;
+			}
+		}
+		</script>
+		<style>
+			#header{
+				padding-top: 0px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  <div class="dropdown-content">
+						  <a href="/accounts/student/profile">Profile</a>
+						  <a href="/accounts/student/change">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/accounts/student/form">View Form</a></li>
+								<li><a href="/accounts/student/fill">Dashboard</a></li>
+								<li><a href="/accounts/student/counseling">Attend Counseling</a></li>
+							</ul>
+						</nav>
+			
+
+				</div>
+
+			<!-- Main -->
+			<section class="wrapper style1" style="padding-top: 1cm;">
+				<div class="container" style="margin-left:1cm;margin-right:0cm;width:95%;">
+					<div id="content">
+
+							<!-- Content -->
+							
+
+							<div style="background-color:whitesmoke;padding-left: 10px;width:100%;border-top:1px solid darkgray;border-bottom:1px solid darkgray;">
+								<span style="font-size:large"><a href="/accounts/student/fill" style="font-weight: bold;color:darkslategrey">Dashboard </a>&nbsp; > &nbsp;<a href="" style="font-weight: bold;color:darkslategrey"> External </a></span>
+						  </div>
+
+						  
+							<h3 style="text-decoration: underline;text-align: center;">EXTERNAL EXAMINATIONS</h3><br>
+                            <form method="POST" action="external" onsubmit="disableEmptyInputs(this)">
+                                {% csrf_token %}
+                               
+
+							<label><h4 style="float: left;">Attempt</h4>&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="attempt" id="attempt" style="width:150px; height:30px; border:2px solid black;" onchange="func()">
+									<option selected="selected" value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+								</select></label><br>
+
+							<table>
+								<tr>
+									<td>
+										<p style="margin: 5px;"><strong>Subjects</strong></p>
+									</td>
+									<td>
+										<p  style="margin: 5px;"><strong>Grade</strong></p>
+									</td>
+									<td>
+										<p  style="margin: 5px;"><strong>Subjects</strong></p>
+									</td>
+									<td>
+										<p  style="margin: 5px;"><strong>Grade</strong></p>
+									</td>
+								</tr>
+								<tr style="height: 1.5cm;">
+									<td>
+										<input type="text" name="s1_name" placeholder="Subject-1" {% if e.s1_name == None %} {% else %} value="{{e.s1_name}}" disabled {% endif %} >
+									</td>
+									<td>
+										<select name="e_theory1" id="e_theory1" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" name="s2_name" placeholder="Subject-2" {% if e.s2_name == None %} {% else %} value="{{e.s2_name}}" disabled {% endif %} >
+									</td>
+									<td>
+										<select name="e_theory2" id="e_theory2" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+								</tr>
+								<tr style="height: 1.5cm;">
+									<td>
+										<input type="text" name="s3_name" placeholder="Subject-3" {% if e.s3_name == None %} {% else %} value="{{e.s3_name}}" disabled {% endif %} >
+									</td>
+									<td>
+										<select name="e_theory3" id="e_theory3" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" name="s4_name" placeholder="Subject-4" {% if e.s4_name == None %} {% else %} value="{{e.s4_name}}" disabled {% endif %} >
+									</td>
+									<td>
+                                        <select name="e_theory4" id="e_theory4" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+								</tr>
+								<tr style="height: 1.5cm;">
+									<td>
+										<input type="text" name="s5_name" placeholder="Subject-5" {% if e.s5_name == None %} {% else %} value="{{e.s5_name}}" disabled {% endif %} >
+									</td>
+									<td>
+                                        <select name="e_theory5" id="e_theory5" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" name="s6_name" placeholder="Subject-6" {% if e.s6_name == None %} {% else %} value="{{e.s6_name}}" disabled {% endif %} >
+									</td>
+									<td>
+                                        <select name="e_theory6" id="e_theory6" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+								</tr>
+								<tr style="height: 1.5cm;">
+									<td>
+										<input type="text" name="s7_name" placeholder="Subject-7" {% if e.s7_name == None %} {% else %} value="{{e.s7_name}}" disabled {% endif %} >
+									</td>
+									<td>
+										<select name="e_theory7" id="e_theory7" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" name="s8_name" placeholder="Subject-8" {% if e.s8_name == None %} {% else %} value="{{e.s8_name}}" disabled {% endif %}>
+									</td>
+									<td>
+                                        <select name="e_theory8" id="e_theory8" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+								</tr>
+								<tr style="height: 1.5cm;">
+									<td>
+										<input type="text" name="s9_name" placeholder="Subject-9" {% if e.s9_name == None %} {% else %} value="{{e.s9_name}}"  disabled {% endif %} >
+									</td>
+									<td>
+										<select name="e_theory9" id="e_theory9" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" name="s10_name" placeholder="Subject-10" {% if e.s10_name == None %} {% else %} value="{{e.s10_name}}" disabled {% endif %} >
+									</td>
+									<td>
+                                        <select name="e_theory10" id="e_theory10" style="width:80px; height:30px; border:2px solid black;">
+											<option value=""></option>
+											<option value="O">O</option>
+												<option value="S">S</option>
+												<option value="A">A</option>
+												<option value="B">B</option>
+												<option value="C">C</option>
+												<option value="D">D</option>
+												<option value="F">F</option>
+										</select>
+									</td>
+								</tr>
+							</table><br>
+							<label for="cgpa"><span style="float:left">CGPA&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<input type="text" id="cgpa" name="cgpa" size="10" style="width: 4cm;">
+							</label>
+							<label for="backlog"><span style="float:left">No. of backlogs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+								<input type="text" id="backlog" name="backlog" size="10" style="width: 4cm;">
+							</label>
+                            <br><br>
+                            <input type="submit">
+                            </form>
+							
+
+									
+
+						</div>
+					</div>
+				</section>
+			
+
+		
+    {% endblock %}
+	</body>
+</html>

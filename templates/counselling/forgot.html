@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by anonymous (http://jsbin.com/lumizawuqo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>
+	  
+	</title>
+<style id="jsbin-css">
+body{
+  background:#F8F8FF;
+}
+img{
+  float:left;
+}
+h1{
+  text-align:center;
+  font-size:35px;
+  word-spacing:5px;
+  text-shadow: 4px 4px 3px darkgrey; margin-bottom: 2px;
+  margin-top: 7px;
+  color: darkslategrey;
+}
+.logo{
+  margin-top: 20px;
+  background:#DCDCDC;
+  border-top:2px solid grey;
+  border-bottom:2px solid grey;
+}
+input[type="text"], input[type="password"]{
+  margin-bottom:8px;
+  border:1px solid grey;
+  border-radius:1px;
+  width:80%;
+  background:#fafafa;
+  padding:8px;
+}
+.login{
+  text-align:center;
+  border:1px solid grey;
+  border-radius:5px;
+  background-color:#DCDCDC;
+  min-width:250px;
+  max-width:400px;
+  margin:auto;
+  margin-top:70px;
+  margin-bottom:70px;
+  box-shadow:5px 5px 7px grey;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.credentails{
+  padding-top:40px;
+  padding-bottom:40px;
+  background-color:white;
+  border-top:1px solid grey;
+}
+.error{
+  color:darkred;
+  margin-bottom:5mm;
+}
+
+</style>
+</head>
+<body>
+  <div class="logo">
+    <img src="/static/counselling/images/logo.png" />
+    <h1>Gayatri Vidya Parishad College Of Engineering For Women</h1>
+    <h3 style="text-align: center; margin-top:0px;margin-bottom:20px;color:maroon;">(Approved by AICTE New Delhi, Affiliated to JNTUK Kakinada)<br>
+    (Accredited by National Board of Accreditation(NBA) for B.Tech CSE,ECE & IT - Valid from 2019-20 to 2021-22)<br>
+  Kommadi, Madhurawada, Visakhapatnam</h3>
+  </div>
+  <h2 style="text-align: center;font-weight:bold;font-size:33px">Counselling Management System</h2>
+  <div class="login">
+  <h2>Forgot Password</h2>
+  
+    
+  <form class="credentails" action="forgot" method="POST">
+    {% csrf_token %}
+    <p>Enter your email address below, and we'll email instructions for setting a new one.</p>
+        <input type="email" placeholder="Email" name="email" class="input" style="height: 0.5cm;width:7cm;" required>
+    <br><br>
+    
+    <input type="submit">
+  </form>
+  
+  <p style="font-size: 20px;">Back to <a href="/">Login</a></p>
+  </div>
+
+
+</body>
+</html>

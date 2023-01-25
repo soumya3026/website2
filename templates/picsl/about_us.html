@@ -1,0 +1,365 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ABOUT Club</title>
+    <link rel="shortcut icon" href="{% static 'picsl//images/fav.png' %}" type="image/x-icon">
+   <link href="{% static 'https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap' %}" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'picsl/css/style.css' %}" />
+    <style>
+        body
+        {
+          background-image: url(https://p4.wallpaperbetter.com/wallpaper/285/939/590/light-background-wallpaper-preview.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed; 
+        }
+        .nav-link:hover{
+            background-color: #384359 !important;
+          }
+    </style>
+</head>
+
+<body>
+
+<header class="continer-fluid ">
+    <div  class="header-top">
+        <div class="container">
+            <div class="row col-det">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <ul class="ulleft">
+                        <li>
+                            <i class="far fa-envelope"></i>
+                               picsl@gvpcew.ac.in
+                            <span>|</span></li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="menu-jk" class="header-bottom">
+        <div >
+            <div class="row nav-row" style="padding-left: 250px;">
+                <div class="logo">
+                    <a href="/picsl/index">
+                        <img src="/static/images/picsl logo.jpg" width="100px" alt=""><a style="font-size: 30px; "><b style="font-family:'Times New Roman', Times, serif">PICSL - Programmers,Innovaters,Coders Society of Learning</b></a>
+                            <img src="/static/images/collegelogo.jpg" style="width: 100px;height: 100px;float:right">
+                                
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                    </a>
+                </div>
+            </div>
+            <div class="row nav-row">
+                <div id="menu" class="col-lg-10 col-md-12 d-none d-lg-block nav-col">
+
+                            <ul class="navbad">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/picsl/index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/events">Events</a>
+                                </li>
+                                <li class="nav-item" >
+                                  <a class="nav-link" href="/picsl/about_us">About Us</a>
+                              </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/blogs">blogs</a>
+                                </li>-->
+                                {% if pic %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/add_evn">Upload Event Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_events">Upload Events</a>
+                                </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_blogs">Upload Blogs</a>
+                                </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login/logout/">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="float: right;">Main Page</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+</header>
+ 
+  <!--  ************************* Page Title Starts Here ************************** -->
+    
+    
+     <!--  ************************* About Us Starts Here ************************** -->    
+<br>    
+<div>
+    <div class="container">
+
+        <div class="row natur-row no-margin w-100">
+            <div >
+                <h2>About Our Club</h2>
+                The Programming Club of GVPCEW is proposed with the overt aim to develop the coding faculties of students by encouraging them to give a stage to implement their ideologies through various activities. <br>
+                The campaigns of this club are planned to test the independent intellects of the members and the clique as a whole and impart these values to the student community.<br>
+                The capabilities inherent in the students need to be inhabitantly brought out to give flair to their practical aptitude. 
+            </div>
+        </div>
+    </div>
+</div>     
+   
+<br><br>
+    
+ <!-- ################# Mission Vision Start Here #######################--->
+  
+  <section >
+      <div class="container">
+              <div >
+                  <h1>Our Objectives</h1>
+                  The objectives of the Programming club include
+                  <ol>
+                    <li>Regulation of programming practice sessions by final year students to their juniors weekly.</li>
+                    <li>Administration of Python Programming training to other department students by CSE final years.</li>
+                    <li>Inform the community of ongoing global and national coding events such as hackathons, fests and talks.</li>
+                    <li>Organize regular contests to refine potential of the members.</li>
+                    <li>Appraise cognitive capabilities by assigning a problem periodically through Discord.</li>
+                    <br>
+                  </ol>
+                </div>
+      </div>
+  </section>   
+  <center><h3>Body Members</h3></center>
+  <section class="wrapper style1" style="padding-top: 50px;">
+    <div class="container">
+        <div id="content" style="padding-left:150px;">
+           <table id="myTable" style="width: 800px;" >
+               <tr >
+                   <th style="border:1px solid black">
+                       <strong>Name</strong>
+                   </th>
+                   <th style="border:1px solid black">
+                       <strong>Roll No</strong>
+                   </th>
+                  
+                   <th style="border:1px solid black">
+                       <strong>Role</strong>
+                   </th>
+                   
+               </tr>
+               <tr >
+                <td style="border:1px solid black">
+                    <strong>G Gayathri</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>19JG1A0538</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>President</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>Y Harsha Sravani</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>19JG1A05C5</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Vice President</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>Ch Soumya Sri</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>19JG1A0518</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                <strong>Secretary</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>M Sravani</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A0557</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Treasurer</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>A Chandrika</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A0512</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Joint Secretary 1</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>A Hema Sai Supraja</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A04205</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Joint Secretary 2</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>Syed Suhana</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>19JG1A05B2</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>K Prasanthi</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>19JG1A0560</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+           
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>A Pallavi</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A0502</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>Y Sowmya</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A05C0</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>V Keerthana</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A05B5</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>A Naga Navya Devika</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A4204</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>C Kumari Madhavi Ravali</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>20JG1A4212</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>C Aishwarya</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>21JG1A0517</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            <tr >
+                <td style="border:1px solid black">
+                    <strong>T Lavanya</strong>
+                </td>
+                <td style="border:1px solid black">
+                    <strong>21JG1A0560</strong>
+                </td>
+               
+                <td style="border:1px solid black">
+                    <strong>Member</strong>
+                </td>
+            </tr>
+            
+            </table>
+        </div>
+    </div>
+    <br><br>
+</section>
+   
+  
+                 
+  <!--  ************************* Footer Starts Here ************************** -->
+          
+      
+          
+    
+</body>
+
+<script src="{% static 'picsl/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'picsl/js/popper.min.js' %}"></script>
+<script src="{% static 'picsl/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'picsl/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+<script src="{% static 'picsl/plugins/slider/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'picsl/js/script.js' %}"></script>
+
+</html>

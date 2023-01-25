@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'counselling/assets/css/main.css' %}" />
+		<style>
+			#header{
+				padding-top: 0px;
+            }
+            
+            .messages{
+                text-align: center;
+				color: red;
+				font-size:x-large;
+                margin-bottom: 30px;
+            }
+		</style>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  {% if user.is_faculty %}
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.first_name}}</button>
+						  {% else %}
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  {% endif %}
+						  <div class="dropdown-content">
+						  <a href="/accounts/student/profile">Profile</a>
+						  <a href="/accounts/student/change">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+					  
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/accounts/student/form">View Form</a></li>
+							<li><a href="/accounts/student/fill">Dashboard</a></li>
+							<li><a href="/accounts/student/counseling">Attend Counseling</a></li>
+						</ul>
+					</nav>
+                        
+				</div>
+
+			<!-- Main -->
+			<section class="wrapper style1" style="padding-top: 50px;">
+					<div class="container">
+						<div id="content">
+
+                            <!-- Content -->
+                            <h2>Change Password:</h2>
+                            <div class="messages">
+                                {% for m in messages %}
+                                    {{m}}
+                                {% endfor %}
+                            </div>
+							
+							
+							<form action="change" method="POST">
+								
+								{% csrf_token %}
+								
+								<label for="old">Old Password :</label>
+								<input type="password" id="old" name="old" style="width: 15cm;border:1px solid black;" required><br>
+								<label for="new">New Password :</label>
+								<input type="password" id="new" name="new" style="width: 15cm;border:1px solid black;" required><br>
+								<label for="rnew">Re-enter New Password :</label>
+								<input type="password" id="rnew" name="rnew" style="width: 15cm;border:1px solid black;" required><br>
+                                
+                            
+								<input type="submit" value="Save">
+							</form>
+		
+						
+						</div>
+					</div>
+				</section>
+
+			
+		
+    {% endblock %}
+	</body>
+</html>

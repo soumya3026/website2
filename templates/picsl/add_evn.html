@@ -1,0 +1,166 @@
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>NGO Home</title>
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.png' %}" type="image/x-icon">
+
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'picsl/css/style.css' %}" />
+    <style>
+
+      .form
+      {
+        padding-top: 30px; 
+      }
+  
+      form
+      {
+        padding-left: 350px;
+        font-size: 0.6cm;
+        
+      }
+  
+      textarea,input
+      {
+        background-color: inherit;
+        padding: 10px;
+        border: 1px solid black;   
+        margin: 8px 0 ;
+        box-sizing: border-box;
+        width: 50%;
+        font-size: 0.4cm;
+      }
+  
+      h2
+      {
+        text-align: center;
+        font-size: 1cm;
+      }
+  
+      body
+        {
+          background-image: url(https://p4.wallpaperbetter.com/wallpaper/285/939/590/light-background-wallpaper-preview.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed; 
+        }
+        .nav-link:hover{
+            background-color: #384359 !important;
+          }
+  </style>
+</head>
+
+<body>
+
+<header class="continer-fluid ">
+    <div  class="header-top">
+        <div class="container">
+            <div class="row col-det">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <ul class="ulleft">
+                        <li>
+                            <i class="far fa-envelope"></i>
+                               picsl@gvpcew.ac.in
+                            <span>|</span></li>
+                        <li>
+                            <i class="fas fa-phone-volume"></i>
+                             9494130993
+                            </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="menu-jk" class="header-bottom">
+        <div >
+            <div class="row nav-row" style="padding-left: 250px;">
+                <div class="logo">
+                    <a href="/picsl/index">
+                        <img src="/static/images/picsl logo.jpg" width="100px" alt=""><a style="font-size: 30px; "><b style="font-family:'Times New Roman', Times, serif">PICSL - Programmers,Innovaters,Coders Society of Learning</b></a>
+                            <img src="/static/images/collegelogo.jpg" style="width: 100px;height: 100px;float:right">
+                                
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                    </a>
+                </div>
+            </div>
+            <div class="row nav-row">
+                <div id="menu" class="col-lg-10 col-md-12 d-none d-lg-block nav-col">
+
+                            <ul class="navbad">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/picsl/index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/events">Events</a>
+                                </li>
+                                <li class="nav-item" >
+                                  <a class="nav-link" href="/picsl/about_us">About Us</a>
+                              </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/blogs">blogs</a>
+                                </li>-->
+                                {% if pic %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/add_evn">Upload Event Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_events">Upload Events</a>
+                                </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_blogs">Upload Blogs</a>
+                                </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login/logout/">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="float: right;">Main Page</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div> > 
+</header>
+
+
+
+   <div class="form">
+   <h2>Upload Event Details</h2>
+   <form method="POST" enctype="multipart/form-data"> 
+       {% csrf_token %}
+      <input type="text" name="title" placeholder="Title"><br><br>
+      <input type="date" name="fromdate" placeholder="Date"><br><br>
+      <input type="date" name="todate" placeholder="Date"><br><br>
+      <textarea name="desc" placeholder="Description"></textarea><br><br>
+      <input type="file" name="img1"><br><br>
+    <input type="file" name="img2"><br><br>
+    <input type="file" name="img3"><br><br>
+       <button type="submit" class="btn btn-info btn-sm">Upload event</button>
+   </form>
+   </div>
+</body>
+<script src="{% static 'picsl/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'picsl/js/popper.min.js' %}"></script>
+<script src="{% static 'picsl/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'picsl/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+<script src="{% static 'picsl/plugins/slider/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'picsl/js/script.js' %}"></script>
+</html>
+
+
+
+  

@@ -1,0 +1,715 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PICSL</title>
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.png' %}" type="image/x-icon">
+
+    <link rel="shortcut icon" href="{% static 'picsl/images/fav.jpg' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'picsl/plugins/slider/css/owl.theme.default.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'picsl/css/style.css' %}" />
+    <style>.row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: -15px; }
+      .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #212529; }
+        .table th,
+        .table td {
+          padding: 0.75rem;
+          vertical-align: top;
+          border-top: 1px solid #dee2e6; }
+        .table thead th {
+          vertical-align: bottom;
+          border-bottom: 2px solid #dee2e6; }
+        .table tbody + tbody {
+          border-top: 2px solid #dee2e6; }
+      
+      .table-sm th,
+      .table-sm td {
+        padding: 0.3rem; }
+      
+      .table-bordered {
+        border: 1px solid #dee2e6; }
+        .table-bordered th,
+        .table-bordered td {
+          border: 1px solid #dee2e6; }
+        .table-bordered thead th,
+        .table-bordered thead td {
+          border-bottom-width: 2px; }
+      
+      .table-borderless th,
+      .table-borderless td,
+      .table-borderless thead th,
+      .table-borderless tbody + tbody {
+        border: 0; }
+      
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05); }
+      
+      .table-hover tbody tr:hover {
+        color: #212529;
+        background-color: rgba(0, 0, 0, 0.075); }
+      
+      .table-primary,
+      .table-primary > th,
+      .table-primary > td {
+        background-color: #b8daff; }
+      
+      .table-primary th,
+      .table-primary td,
+      .table-primary thead th,
+      .table-primary tbody + tbody {
+        border-color: #7abaff; }
+      
+      .table-hover .table-primary:hover {
+        background-color: #9fcdff; }
+        .table-hover .table-primary:hover > td,
+        .table-hover .table-primary:hover > th {
+          background-color: #9fcdff; }
+      
+      .table-secondary,
+      .table-secondary > th,
+      .table-secondary > td {
+        background-color: #d6d8db; }
+      
+      .table-secondary th,
+      .table-secondary td,
+      .table-secondary thead th,
+      .table-secondary tbody + tbody {
+        border-color: #b3b7bb; }
+      
+      .table-hover .table-secondary:hover {
+        background-color: #c8cbcf; }
+        .table-hover .table-secondary:hover > td,
+        .table-hover .table-secondary:hover > th {
+          background-color: #c8cbcf; }
+      
+      .table-success,
+      .table-success > th,
+      .table-success > td {
+        background-color: #c3e6cb; }
+      
+      .table-success th,
+      .table-success td,
+      .table-success thead th,
+      .table-success tbody + tbody {
+        border-color: #8fd19e; }
+      
+      .table-hover .table-success:hover {
+        background-color: #b1dfbb; }
+        .table-hover .table-success:hover > td,
+        .table-hover .table-success:hover > th {
+          background-color: #b1dfbb; }
+      
+      .table-info,
+      .table-info > th,
+      .table-info > td {
+        background-color: #bee5eb; }
+      
+      .table-info th,
+      .table-info td,
+      .table-info thead th,
+      .table-info tbody + tbody {
+        border-color: #86cfda; }
+      
+      .table-hover .table-info:hover {
+        background-color: #abdde5; }
+        .table-hover .table-info:hover > td,
+        .table-hover .table-info:hover > th {
+          background-color: #abdde5; }
+      
+      .table-warning,
+      .table-warning > th,
+      .table-warning > td {
+        background-color: #ffeeba; }
+      
+      .table-warning th,
+      .table-warning td,
+      .table-warning thead th,
+      .table-warning tbody + tbody {
+        border-color: #ffdf7e; }
+      
+      .table-hover .table-warning:hover {
+        background-color: #ffe8a1; }
+        .table-hover .table-warning:hover > td,
+        .table-hover .table-warning:hover > th {
+          background-color: #ffe8a1; }
+      
+      .table-danger,
+      .table-danger > th,
+      .table-danger > td {
+        background-color: #f5c6cb; }
+      
+      .table-danger th,
+      .table-danger td,
+      .table-danger thead th,
+      .table-danger tbody + tbody {
+        border-color: #ed969e; }
+      
+      .table-hover .table-danger:hover {
+        background-color: #f1b0b7; }
+        .table-hover .table-danger:hover > td,
+        .table-hover .table-danger:hover > th {
+          background-color: #f1b0b7; }
+      
+      .table-light,
+      .table-light > th,
+      .table-light > td {
+        background-color: #fdfdfe; }
+      
+      .table-light th,
+      .table-light td,
+      .table-light thead th,
+      .table-light tbody + tbody {
+        border-color: #fbfcfc; }
+      
+      .table-hover .table-light:hover {
+        background-color: #ececf6; }
+        .table-hover .table-light:hover > td,
+        .table-hover .table-light:hover > th {
+          background-color: #ececf6; }
+      
+      .table-dark,
+      .table-dark > th,
+      .table-dark > td {
+        background-color: #c6c8ca; }
+      
+      .table-dark th,
+      .table-dark td,
+      .table-dark thead th,
+      .table-dark tbody + tbody {
+        border-color: #95999c; }
+      
+      .table-hover .table-dark:hover {
+        background-color: #b9bbbe; }
+        .table-hover .table-dark:hover > td,
+        .table-hover .table-dark:hover > th {
+          background-color: #b9bbbe; }
+      
+      .table-active,
+      .table-active > th,
+      .table-active > td {
+        background-color: rgba(0, 0, 0, 0.075); }
+      
+      .table-hover .table-active:hover {
+        background-color: rgba(0, 0, 0, 0.075); }
+        .table-hover .table-active:hover > td,
+        .table-hover .table-active:hover > th {
+          background-color: rgba(0, 0, 0, 0.075); }
+      
+      .table .thead-dark th {
+        color: #fff;
+        background-color: #343a40;
+        border-color: #454d55; }
+      
+      .table .thead-light th {
+        color: #495057;
+        background-color: #e9ecef;
+        border-color: #dee2e6; }
+      
+      .table-dark {
+        color: #fff;
+        background-color: #343a40; }
+        .table-dark th,
+        .table-dark td,
+        .table-dark thead th {
+          border-color: #454d55; }
+        .table-dark.table-bordered {
+          border: 0; }
+        .table-dark.table-striped tbody tr:nth-of-type(odd) {
+          background-color: rgba(255, 255, 255, 0.05); }
+        .table-dark.table-hover tbody tr:hover {
+          color: #fff;
+          background-color: rgba(255, 255, 255, 0.075); }
+      
+      @media (max-width: 575.98px) {
+        .table-responsive-sm {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch; }
+          .table-responsive-sm > .table-bordered {
+            border: 0; } }
+      
+      @media (max-width: 767.98px) {
+        .table-responsive-md {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch; }
+          .table-responsive-md > .table-bordered {
+            border: 0; } }
+      
+      @media (max-width: 991.98px) {
+        .table-responsive-lg {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch; }
+          .table-responsive-lg > .table-bordered {
+            border: 0; } }
+      
+      @media (max-width: 1199.98px) {
+        .table-responsive-xl {
+          display: block;
+          width: 100%;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch; }
+          .table-responsive-xl > .table-bordered {
+            border: 0; } }
+      
+      .table-responsive {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; }
+        .table-responsive > .table-bordered {
+          border: 0; }
+      
+      .form-control {
+        display: block;
+        width: 100%;
+        height: calc(1.5em + 0.75rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+        -o-transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out; }
+        @media (prefers-reduced-motion: reduce) {
+          .form-control {
+            -webkit-transition: none;
+            -o-transition: none;
+            transition: none; } }
+        .form-control::-ms-expand {
+          background-color: transparent;
+          border: 0; }
+        .form-control:focus {
+          color: #495057;
+          background-color: #fff;
+          border-color: #80bdff;
+          outline: 0;
+          -webkit-box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); }
+        .form-control::-webkit-input-placeholder {
+          color: #6c757d;
+          opacity: 1; }
+        .form-control:-ms-input-placeholder {
+          color: #6c757d;
+          opacity: 1; }
+        .form-control::-ms-input-placeholder {
+          color: #6c757d;
+          opacity: 1; }
+        .form-control::placeholder {
+          color: #6c757d;
+          opacity: 1; }
+        .form-control:disabled, .form-control[readonly] {
+          background-color: #e9ecef;
+          opacity: 1; }
+      
+      select.form-control:focus::-ms-value {
+        color: #495057;
+        background-color: #fff; }
+      
+      .form-control-file,
+      .form-control-range {
+        display: block;
+        width: 100%; }
+      
+      .col-form-label {
+        padding-top: calc(0.375rem + 1px);
+        padding-bottom: calc(0.375rem + 1px);
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: 1.5; }
+      
+      .col-form-label-lg {
+        padding-top: calc(0.5rem + 1px);
+        padding-bottom: calc(0.5rem + 1px);
+        font-size: 1.25rem;
+        line-height: 1.5; }
+      
+      .col-form-label-sm {
+        padding-top: calc(0.25rem + 1px);
+        padding-bottom: calc(0.25rem + 1px);
+        font-size: 0.875rem;
+        line-height: 1.5; }
+      
+      .form-control-plaintext {
+        display: block;
+        width: 100%;
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
+        margin-bottom: 0;
+        line-height: 1.5;
+        color: #212529;
+        background-color: transparent;
+        border: solid transparent;
+        border-width: 1px 0; }
+        .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
+          padding-right: 0;
+          padding-left: 0; }
+      
+      .form-control-sm {
+        height: calc(1.5em + 0.5rem + 2px);
+        padding: 0.25rem 0.5rem;
+        font-size: 0.875rem;
+        line-height: 1.5;
+        border-radius: 0.2rem; }
+      
+      .form-control-lg {
+        height: calc(1.5em + 1rem + 2px);
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        border-radius: 0.3rem; }
+      
+      select.form-control[size], select.form-control[multiple] {
+        height: auto; }
+      
+      textarea.form-control {
+        height: auto; }
+      
+      .form-group {
+        margin-bottom: 1rem; }
+      
+      .form-text {
+        display: block;
+        margin-top: 0.25rem; }
+      
+      .form-row {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        margin-right: -5px;
+        margin-left: -5px; }
+        .form-row > .col,
+        .form-row > [class*="col-"] {
+          padding-right: 5px;
+          padding-left: 5px; }
+      
+      .form-check {
+        position: relative;
+        display: block;
+        padding-left: 1.25rem; }
+      
+      .form-check-input {
+        position: absolute;
+        margin-top: 0.3rem;
+        margin-left: -1.25rem; }
+        .form-check-input:disabled ~ .form-check-label {
+          color: #6c757d; }
+      
+      .form-check-label {
+        margin-bottom: 0; }
+      
+      .form-check-inline {
+        display: -webkit-inline-box;
+        display: -ms-inline-flexbox;
+        display: inline-flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: 0;
+        margin-right: 0.75rem; }
+        .form-check-inline .form-check-input {
+          position: static;
+          margin-top: 0;
+          margin-right: 0.3125rem;
+          margin-left: 0; }
+      
+      
+      .ftco-section {
+        padding: 0 10%; }
+      
+      .ftco-no-pt {
+        padding-top: 0; }
+      
+      .ftco-no-pb {
+        padding-bottom: 0; }
+      
+      .heading-section {
+        font-size: 28px;
+        color: #000; }
+      
+      .img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center; }
+      
+      .table-wrap {
+        overflow-x: scroll; }
+      
+      .table {
+        min-width: 1000px !important;
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 10px; }
+        .table thead th {
+          border: none;
+          padding: 30px;
+          font-size: 14px;
+          color: #fff; }
+        .table tbody tr {
+          margin-bottom: 10px;
+          -webkit-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+          -moz-box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29);
+          box-shadow: 0px 5px 12px -12px rgba(0, 0, 0, 0.29); }
+        .table tbody th, .table tbody td {
+          border: none;
+          padding: 30px;
+          font-size: 14px;
+          background: #fff; }
+        .table tbody td .close span {
+          font-size: 12px;
+          color: #dc3545; }
+        .nav-link:hover{
+          background-color: #384359 !important;
+        }
+
+        body
+        {
+          background-image: url(https://p4.wallpaperbetter.com/wallpaper/285/939/590/light-background-wallpaper-preview.jpg);
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed; 
+        }
+        </style>
+</head>
+
+<body>
+
+<header class="continer-fluid ">
+    <div  class="header-top">
+        <div class="container">
+            <div class="row col-det">
+                <div class="col-lg-6 d-none d-lg-block">
+                    <ul class="ulleft">
+                        <li>
+                            <i class="far fa-envelope"></i>
+                               picsl@gvpcew.ac.in
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div id="menu-jk" class="header-bottom">
+        <div >
+            <div class="row nav-row" style="padding-left: 250px;">
+                <div class="logo">
+                    <a href="/picsl/index">
+                        <img src="/static/images/picsl logo.jpg" width="100px" alt=""><a style="font-size: 30px; "><b style="font-family:'Times New Roman', Times, serif">PICSL - Programmers,Innovaters,Coders Society of Learning</b></a>
+                            <img src="/static/images/collegelogo.jpg" style="width: 100px;height: 100px;float:right">
+                                
+                        <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
+                    </a>
+                </div>
+            </div>
+            <div class="row nav-row">
+                <div id="menu" class="col-lg-10 col-md-12 d-none d-lg-block nav-col">
+
+                            <ul class="navbad">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="/picsl/index">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/events">Events</a>
+                                </li>
+                                <li class="nav-item" >
+                                  <a class="nav-link" href="/picsl/about_us">About Us</a>
+                              </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/blogs">blogs</a>
+                                </li>-->
+                                {% if pic %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/add_evn/">Upload Event Details</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_events">Upload Events</a>
+                                </li>
+                                <!--<li class="nav-item">
+                                    <a class="nav-link" href="/picsl/upload_blogs">Upload Blogs</a>
+                                </li>-->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login/logout/">Logout</a>
+                                </li>
+                                {% else %}
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/" style="float: right;">Main Page</a>
+                                </li>
+                                {% endif %}
+                            </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div> 
+</header>
+  
+                 
+  <!-- ******************** Slider Starts Here ******************* -->
+   
+ <!--  ************************* About Us Starts Here **************************     
+       
+ <div class="about-us container-fluid">
+    <div class="container">
+
+        <div class="row natur-row no-margin w-100">
+            <div class="text-part col-md-6">
+                <h2>About Our Club</h2>
+                <p>The Programming Club of GVPCEW is proposed with the overt aim to develop the coding faculties of students by encouraging them to give a stage to implement their ideologies through various activities. The campaigns of this club are planned to test the independent intellects of the members and the clique as a whole and impart these values to the student community.
+                The capabilities inherent in the students need to be inhabitantly brought out to give flair to their practical aptitude. </p>
+            </div>
+        </div>
+    </div>
+</div>      
+   
+-->
+    
+ <!-- ################# Mission Vision Start Here #######################-
+  
+ <section class="container-fluid mission-vision">
+    <div class="container">
+        <div class="row mission">
+            <div class="col-md-6 mv-det">
+                <h1>Our Objectives</h1>
+                The objectives of the Programming club include
+                <ul>
+                  <li>Regulation of programming practice sessions by final year students to their juniors weekly.</li>
+                  <li>Administration of Python Programming training to other department students by CSE final years.</li>
+                  <li>Inform the community of ongoing global and national coding events such as hackathons, fests and talks.</li>
+                  <li>Organize regular contests to refine potential of the members.</li>
+                  <li>Appraise cognitive capabilities by assigning a problem periodically through Discord.</li>
+                </ul>
+              </div>
+            <div class="col-md-6 mv-img">
+                <img src="{% static 'picsl/images/misin.jpg' %}" alt="">
+            </div>
+        </div>
+    </div>
+</section>   
+-->
+
+    
+     <!-- ################# Events Start Here#######################--->
+     <br>
+     <h3><marquee style="color:#384359;">Welcome to  PICSL!!!</marquee></h3>
+ 
+
+                   
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Events Held</th>
+                                    <th>Date</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for event in evnt %}
+                                    <tr class="alert" role="alert">
+                                        <td scope="row">{{event.title}}</td>
+                                        <td>{{event.fromdate}} to {{event.todate}}</td>
+                                        <td><form method="POST" action="{% url 'picsl:abt_evn' event.pk %}">
+                                            {% csrf_token %}
+                                            <button type="submit" class="btn btn-danger btn-sm" style="background-color:rgb(247, 57, 57);border-color:rgb(247, 57, 57);border-radius:8px;">View Details</button>
+                                            </form>
+                                        </td>
+                                        {% if pic %}
+                                            <td><form method="POST" action="{% url 'picsl:del_eve' event.pk %}">
+                                                {% csrf_token %}
+                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            </td>
+                                        {% else %}
+                                            <td>&nbsp;</td>
+                                        {% endif %}
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ################# Our Blog Starts Here#######################--->
+
+    <!--
+        <section class="our-blog">
+        <div class="container">
+            <div class="session-title row">
+                <h2>Our Blogs</h2>
+            </div> 
+           <div class="blog-row row">
+               {% for blog in nblog %}
+               <div class>
+                   <div class="single-blog">
+                       <div class="blog-detail">
+                          <h2 style="color: red;">{{ blog.title }}</h2>
+                          <small >{{blog.date}}</small>
+                          <figure>
+                                <br><img src="{{ blog.img.url }}" alt="" width=auto height=auto style="padding-left: 20%;padding-right:20%">
+                           </figure>								
+                           <p> {{blog.desc}} </p>
+                           {% if pic %}
+                           <form method="POST" action="{% url 'delete_blogs' blog.pk %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                           {% endif %}
+                       </div>        					
+                   </div>
+               </div>
+               {% endfor %}
+           </div>
+        </div>
+    </section>
+    -->
+          
+      
+          
+    
+</body>
+
+<script src="{% static 'picsl/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'picsl/js/popper.min.js' %}"></script>
+<script src="{% static 'picsl/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'picsl/plugins/scroll-fixed/jquery-scrolltofixed-min.js' %}"></script>
+<script src="{% static 'picsl/plugins/slider/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'picsl/js/script.js' %}"></script>
+
+</html>

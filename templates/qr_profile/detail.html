@@ -1,0 +1,260 @@
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>My Profile</title>
+        <meta name="description" content="JNTUK affiliated">
+        <meta name="author" content="Soumya">
+        <meta name="keyword" content="html5, css, bootstrap, property, real-estate theme , bootstrap template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="icon" href="favicon.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static 'assets/css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/fontello.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/icon-7-stroke/css/pe-icon-7-stroke.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/fonts/icon-7-stroke/css/helper.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}" media="screen">
+        <link rel="stylesheet" href="{% static 'assets/css/bootstrap-select.min.css' %}">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/icheck.min_all.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/price-range.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.theme.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/owl.transitions.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+        <script src="{% static 'assets/js/modernizr-2.6.2.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery-1.10.2.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap-select.min.js' %}"></script>
+        <script src="{% static 'assets/js/bootstrap-hover-dropdown.js' %}"></script>
+        <script src="{% static 'assets/js/easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.easypiechart.min.js' %}"></script>
+        <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'assets/js/wow.js' %}"></script>
+        <script src="{% static 'assets/js/icheck.min.js' %}"></script>
+        <script src="{% static 'assets/js/price-range.js' %}"></script>
+        <script src="{% static 'assets/js/main.js' %}"></script>
+    </head>
+	<style>
+		.card { 
+			font-family: 'Source Code Pro', monospace;
+		   
+		   text-rendering: optimizelegibility;
+		   -webkit-font-smoothing: antialiased;
+		   -moz-osx-font-smoothing: grayscale;
+		   width: fit-content;
+		   height: fit-content;
+		   padding: 30px 15px;
+		   border-radius: 0.75rem;
+		   box-shadow:  0 22px 70px 4px rgba(0,0,0,0.56), 0 0 0 1px rgba(0, 0, 0, 0.3);
+		   justify-content: space-evenly;
+		   background: black;
+		   text-align: left;
+		   display: grid;
+		   grid-template-columns: 40% auto;
+		   color: white;
+		   justify-content: space-between;
+		   align-items: center;
+		   margin:10px;
+		   will-change: transform;
+		   transition: transform 0.25s cubic-bezier(0.4, 0.0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0.0, 0.2, 1);
+		   
+		   
+		}
+		
+		.card-details {
+		   padding: 1rem;
+		}
+		
+		.name {
+		   font-size: 1.25rem;
+		}
+		
+		.occupation {
+		   font-weight: 600;
+		   color: var(--primary);
+		}
+		
+		.card-avatar {
+		   display: grid;
+		   place-items: center;
+		}
+		.card-about {
+		   margin-top: 1rem;
+		   display: grid;
+		   grid-auto-flow: column;
+		}
+		
+		.item {
+		   display: flex;
+		   flex-direction: column;
+		   margin-bottom: 0.5rem;
+		  
+		}
+		input{
+			width:25%;border:groove;
+		}
+		table, th, td {
+  			border: 1px solid black;
+			padding: 10px !important;
+		}
+		body
+		{
+		    counter-reset: Serial;          
+		}
+		#myTable tr td:first-child:before
+		{
+		  counter-increment: Serial;      
+		  content: counter(Serial); 
+		}
+
+		</style>
+<body>
+
+        <script>
+			function myFunction() {
+		  var input, filter, table, tr, td, i, txtValue;
+		  input = document.getElementById("myInput");
+		  filter = input.value.toUpperCase();
+		  table = document.getElementById("myTable");
+		  tr = table.getElementsByTagName("tr");
+		  for (i = 0; i < tr.length; i++) {
+			td = tr[i].getElementsByTagName("td")[1];
+			if (td) {
+			  txtValue = td.textContent || td.innerText;
+			  //tr[1].style.display='';
+			  if (txtValue.toUpperCase().indexOf(filter) > -1) {
+				tr[i].style.display = '';
+			  } else {
+				tr[i].style.display = "none";
+			  }
+			}       
+		  }
+		}
+		</script>
+        <!-- Body content -->
+
+    
+        <!--End top header -->
+
+    <nav class="navbar navbar-default ">
+        <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                
+                    <!--<a class="navbar-brand" href="index.html"><img src="./home/assets/img/gvp.jpg" alt=""></a>-->
+            </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse yamm" id="navigation">
+                {% if user.is_authenticated %}
+                <div class="button navbar-right">
+                    <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.45s"><a href="/qr_profile/">DOCS</a></button>
+                    <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s"><a href="/">HOME</a></button>
+                </div>
+                {% else %}
+                <div class="button navbar-right">
+                    <button class="navbar-btn nav-button wow bounceInRight login" data-wow-delay="0.45s"><a href="/login/signin/">Login</a></button>
+                    <button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s"><a href="/login/face_detection/">Register</a></button>
+                </div>
+                {% endif %}
+                    
+            </div>
+		</div>
+		
+		<center>
+			<!--<h1> STUDENT DATA<span>CARD</span></h1>-->
+			<br>
+			{% if user.is_authenticated %}
+			{% if user.is_faculty %}
+			<h3>Hello, {{user.first_name}}</h3>
+			{% else %}
+			<h3>Hello, {{user.username}}</h3>
+			{% endif %}
+			{% if k %}
+            <input type="text" id="myInput" onkeyup="myFunction()" style="width:25%" placeholder="Search for Roll numbers.." title="Type in a rollnumber">
+    		<div style="display: flex; justify-content:space-evenly;"> 
+				<div class="container">
+					<table id="myTable" style="width: 50%;padding: 10px;border: 1px;">
+						<tr >
+							<th style="border:1px solid black">
+								<strong>S.No</strong>
+							</th>
+							<th style="border:1px solid black">
+								<strong>Username</strong>
+							</th>
+							
+							<th style="border: 1px solid black;">
+								<strong>View</strong>
+							</th>
+						</tr>
+						{% for student in k %}
+						<tr>
+							<td></td>
+							<td>{{student.use}}</td>
+							<td>
+								{% if user.is_staff %}
+							<form method="POST" action="{% url 'qr_profile:disp' student.pk %}">
+								{% csrf_token %}
+								<button type="submit" style="background-color:white;">VIEW</button>
+							</form>
+							{% endif %}
+							</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</div><br>
+			{% endif %}
+
+
+			{% if l %}
+			<center>
+				<div class="section padding-top-50 padding-bottom-50 center-align">
+					<h3 class="padding-top-15">Your docs!</h3>
+				</div>
+				
+				<div>
+					<table width="40%" style="border:0">
+						{% for i in l %}
+						<tr>
+							<td>
+								<a href="{{i.image.url}}" target="_blank"><div class="button"><p class="white">{{i.title}}</p></div></a>
+							</td>
+							<td>
+								<form method="POST" action="{% url 'qr_profile:del_doc' i.pk %}">
+									{% csrf_token %}
+									<button type="submit" class="btn btn-danger btn-sm">Delete</button>
+								</form>
+							</td>
+						</tr>
+						{% endfor %}
+					</table>
+				</div>
+			</center>
+			<br><br>
+			{% endif %}
+			<button class="navbar-btn nav-button wow fadeInRight" data-wow-delay="0.48s"><a href="/qr_profile/upload/">ADD/UPDATE DOCS</a></button>
+			{% endif %}
+		</center>
+    </body>
+</html>

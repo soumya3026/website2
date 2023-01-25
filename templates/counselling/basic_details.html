@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'counselling/assets/css/main.css' %}" />
+		<script>
+			function disableEmptyInputs(form) {
+				var controls = form.elements;
+				for (var i=0, iLen=controls.length; i<iLen; i++) {
+				  controls[i].disabled = controls[i].value == '';
+				}
+			  }
+		</script>
+		<style>
+			#header{
+				padding-top: 0px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+						  <div class="dropdown-content">
+						  <a href="/accounts/student/profile">Profile</a>
+						  <a href="/accounts/student/change">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="/accounts/student/logout">Logout</a>
+						  <!--<a href="{% url "logout" %}?next=/">Logout</a>-->
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								<li><a href="/accounts/student/form">View Form</a></li>
+								<li><a href="/accounts/student/fill">Dashboard</a></li>
+								<li><a href="/accounts/student/counseling">Attend Counseling</a></li>
+							</ul>
+						</nav>
+			
+
+				</div>
+
+			<!-- Main -->
+				<section class="wrapper style1" style="padding-top: 1cm;">
+					<div class="container" style="margin-left:1cm;margin-right:0cm;width:95%;">
+						<div id="content">
+
+							<!-- Content -->
+
+							<div style="background-color:whitesmoke;padding-left: 10px;width:100%;border-top:1px solid darkgray;border-bottom:1px solid darkgray;">
+								<span style="font-size:large"><a href="/accounts/student/fill" style="font-weight: bold;color:darkslategrey">Dashboard </a>&nbsp; > &nbsp;<a href="" style="font-weight: bold;color:darkslategrey"> Basic Details</a></span>
+						  </div>
+
+
+							<h3 style="text-decoration: underline;text-align: center;">BASIC DETAILS</h3><br>
+
+							<label style="display: inline-block;">YEAR :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{b.year}}
+							</label>
+						
+
+						<label style="display: inline-block;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SEMESTER :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{b.semester}}
+							</label>
+						<br><br>
+
+						<label style="display: inline-block;">COUNSELLOR NAME : {{b.counsellor_name}}
+									
+						</label>
+						<br><br>
+                            <form method="POST" action="basic_details" onsubmit="disableEmptyInputs(this)">
+							{% csrf_token %}
+
+                            <label><h4 style="float: left;">PRESENT STAY:</h4>&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="hd" id="hd" style="width:150px; height:30px; border:2px solid black;" onchange="showfield(this.options[this.selectedIndex].value)">
+									<option {% if b.stay == "Please select ..." %} selected {% endif %}>Please select ...</option>
+									<option value="Dayscholar" {% if b.stay == "Dayscholar" %} selected {% endif %}>Dayscholar</option>
+									<option value="Hostler" {% if b.stay == "Hostler" %} selected {% endif %}>Hostler</option>
+								</select></label><br>
+								<div id="div1"></div>
+
+								<script type="text/javascript">
+									function showfield(name)
+									{
+										var data='<div style="border:1px solid black; padding:5px;"><label for="hname" style="float:left;">Hostel Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hname" name="hname" size="50"></label>'+
+										'<label for="hph_no">Phone Number:<input type="text" id="hph_no" name="hph_no" pattern="[0-9]{10}" style="width:250px;" title="enter valid phone number"></label>'+
+										'<label for="wname" style="float:left;">Warden Name:<input type="text" id="wname" name="wname" size="50"></label>'+
+										'<label for="wph_no">Warden Phone No:<input type="text" id="wph_no" name="wph_no" pattern="[0-9]{10}" style="width:250px;" title="enter valid phone number"></label>'+
+										'<label for="haddress" style="float:left;">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><textarea id="haddress" name="haddress" style="width:300px; height:150px;"></textarea>'+
+									    '<label>Roommate Names with Branch:<input type="text" name="roommate1" placeholder="Roommate1"><input type="text" name="roommate2" placeholder="Roommate2" style="margin-top:3px;"><input type="text" name="roommate3" placeholder="Roommate3" style="margin-top:3px;"></label></div><br>';
+									  
+										if(name=='Hostler'){
+									  document.getElementById('div1').innerHTML=data;
+									  
+									  }
+									  else document.getElementById('div1').innerHTML='';
+									}
+								</script>
+
+								<label><span style="float:left;">ATTENDANCE PERCENTAGE:</span>
+									<input type="text" name="w4" placeholder="after 4 weeks" style="width:120px;float:left;margin-left:5px;">
+									<input type="text" name="8w" placeholder="after 8 weeks" style="width:120px;float:left;margin-left:5px;">
+									<input type="text" name="12w" placeholder="after 12 weeks" style="width:120px;float:left;margin-left:5px;">
+									<input type="text" name="16w" placeholder="after 16 weeks" style="width:120px;float:left;margin-left:5px;margin-right:5px;">
+									<input type="text" name="final" placeholder="final" style="width:120px;">
+                                </label><br><br>
+                                <input type="submit">
+							</form>
+
+									
+
+						</div>
+					</div>
+				</section>
+			
+
+		
+    {% endblock %}
+	</body>
+</html>

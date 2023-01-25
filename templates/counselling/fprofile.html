@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{% static 'counselling/assets/css/profile.css' %}" />
+	<title>GVPCEW</title>
+	<style>
+		#header{
+			padding-top: 0px;
+		}
+	</style>
+</head>
+<body>
+    {% block content %}
+    <body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+					
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+						  <button class="dropbtn1" style="height: 40px;width:fit-content">{{user.first_name}}</button>
+						  <div class="dropdown-content">
+						  <a href="/accounts/faculty/fprofile">Profile</a>
+						  <a href="/accounts/faculty/hchange">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="/accounts/faculty/counseling_students">Counseling Students</a></li>
+							<li><a href="/accounts/faculty/grant_access">Grant Access</a></li>
+						</ul>
+					</nav>
+
+                </div>
+                
+                <section class="wrapper style1" style="padding-top: 50px;">
+					<div class="container">
+						<div id="content">
+
+                            <h1 class="heading">FACULTY PROFILE</h1>
+
+                            <form method="POST" action="fprofile">
+								{% csrf_token %}
+                            <label for="faname">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="text" id="faname" name="faname" size="50" value="{{f.name}}"></label>
+                           
+							<!--
+								 <label for="faemail">Email Id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="email" id="faemail" name="faemail" size="50" value="{{f.email}}"></label>
+							-->
+
+                            <label for="faph_no">Phone Number:
+							<input type="text" id="faph_no" name="faph_no" size="50" value="{{f.ph_no}}"></label>
+
+                            <label for="dob">Date of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="date" name="dob" value="{{pro2.dob}}" size="50"></label>
+							<label for="img">Upload your Image (passport size):
+							<input type="file" name="img" value="{{pro2.img}}" size="50"></label>
+							<label for="designation">Designation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="text" name="designation" value="{{pro2.desig}}" size="50"></label>
+							<label for="address">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<input type="text" name="address" value="{{pro2.address}}" size="50"></label>
+							<label for="qualif">Qualifications:&nbsp;&nbsp;&nbsp;
+							<input type="text" name="qualif" value="{{pro2.qualif}}" size="50"></label>
+							<label for="tech_skl">Technical Skills:
+							<textarea name="tech_skl" value="{{pro2.tech_skl}}" rows="3" cols="52"></textarea></label>
+							<label for="exp">Experience:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<textarea name="exp" value="{{pro2.exp}}" rows="3" cols="52"></textarea></label>
+							<label for="subj">Subjects Taught:
+							<textarea name="subj" value="{{pro2.subj}}" rows="3" cols="52"></textarea></label>
+							<label for="achv">Achievements:&nbsp;&nbsp;&nbsp;
+							<textarea name="achv" value="{{pro2.achv}}" rows="3" cols="52"></textarea></label>
+							<label for="res_area">Research Areas:
+							<textarea name="res_area" value="{{pro2.res_area}}" rows="3" cols="52"></textarea></label>
+							<label for="ref">References:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<textarea name="ref" value="{{pro2.ref}}" rows="3" cols="52"></textarea></label><br>
+
+							<input type="submit" value="save">
+							</form>
+							
+                        </div>
+                    </div>
+                </section>
+
+       
+    {% endblock %}
+</body>
+</html>

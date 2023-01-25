@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Arcana by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>GVPCEW</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'counselling/assets/css/profile.css' %}" />
+		<script>
+			function disableEmptyInputs(form) {
+				var controls = form.elements;
+				for (var i=0, iLen=controls.length; i<iLen; i++) {
+				  controls[i].disabled = controls[i].value == '';
+				}
+			  }
+		</script>
+		<style>
+			#header{
+				padding-top: 0px;
+			}
+
+			a.disabled {
+				pointer-events: none;
+				cursor: default;
+			  }
+		</style>
+	</head>
+	<body class="is-preload">
+		{% block content %}
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<div id="header">
+
+					<!-- Logo -->
+					<div class="dd" style="text-align:right;padding:2px 10px;">
+						<div  class="dropdown1">
+							{% if user.is_faculty %}
+							<button class="dropbtn1" style="height: 40px;width:fit-content">{{user.first_name}}</button>
+							{% else %}
+							<button class="dropbtn1" style="height: 40px;width:fit-content">{{user.username}}</button>
+							{% endif %}
+						  <div class="dropdown-content">
+						  <a href="/accounts/student/profile">Profile</a>
+						  <a href="/accounts/student/change">Settings</a>
+						  <a href="/">Home</a>
+						  <a href="{% url "logout" %}?next=/">Logout</a>
+						  </div>
+						</div>
+					</div>
+					
+					<div class="logo">
+						<img src="/static/counselling/images/logo.png" />
+						<h1 style="padding-bottom: 0px;min-height:50px;">Gayatri Vidya Parishad College Of Engineering For Women</h1>
+						<h2 style="text-align: center; margin-bottom:0px;font-size:30px;">Counselling Management System</h2>
+					  </div>
+
+					<!-- Nav -->
+						<nav id="nav">
+							<ul>
+								{% if p1.done == '0' %}
+								<li><a href="/accounts/student/form" class="disabled" >View Form</a></li>
+								<li><a href="/accounts/student/fill" class="disabled" >Dashboard</a></li>
+								<li><a href="/accounts/student/counseling" class="disabled" >Attend Counseling</a></li>
+								{% else %}
+                                <li><a href="/accounts/student/form" >View Form</a></li>
+								<li><a href="/accounts/student/fill">Dashboard</a></li>
+								<li><a href="/accounts/student/counseling">Attend Counseling</a></li>
+								{% endif %}
+							</ul>
+						</nav>
+
+				</div>
+
+			<!-- Main -->
+			<section class="wrapper style1" style="padding-top: 50px;">
+					<div class="container">
+						<div id="content">
+
+							<!-- Content -->
+							{% if p1.done == '0' %}
+							<marquee behavior="scroll" direction="left" style="color: darkred;font-weight:bold;">To continue further, fill your profile.</marquee><br>
+							{% endif %}
+							<h1 class="heading">STUDENT PROFILE</h1>
+                            <form action="profile" method="POST" onsubmit="disableEmptyInputs(this)">
+								{% csrf_token %}
+								
+								<label for="rno">Roll Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="rno" name="rno" value="{{p1.roll_no}}" required>
+								</label>
+								<label for="name">Name (as in SSC):
+									<input type="text" id="name" name="name" size="50" value="{{p1.name}}" required>
+								</label>
+								<label>Branch:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" value="cse" name="branch" {% if p1.branch == "cse" %} checked {% endif %}>&nbsp;CSE&nbsp;&nbsp;<input type="radio" value="csm" name="branch" {% if p1.branch == "csm" %} checked {% endif %}>&nbsp;CSM&nbsp;&nbsp;<Input type="radio" value="ece" name="branch" {% if p1.branch == "ece" %} checked {% endif %}>&nbsp;ECE&nbsp;&nbsp;<Input type="radio" value="it" name="branch" {% if p1.branch == "it" %} checked {% endif %}>&nbsp;IT&nbsp;&nbsp;<Input type="radio" value="eee" name="branch" {% if p1.branch == "eee" %} checked {% endif %}>&nbsp;EEE
+								</label>							
+								<label>Section:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" value="1"  name="section" {% if p1.section == "1" %} checked {% endif %}>&nbsp;1&nbsp;&nbsp;<Input type="radio" value="2" name="section" {% if p1.section == "2" %} checked {% endif %}>&nbsp;2
+								</label> 
+                                <label for="dob">Date Of Birth:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									{% if p1.DOB %}
+									<input type="text" value="{{p1.DOB}}" disabled>
+									{% else %}
+									<input type="date" id="dob" name="dob" required>
+									{% endif %}
+								</label>
+								<label for="adaar">Aadhar Number:&nbsp;
+									<input type="text" id="adaar" name="adaar" pattern="[0-9]{12}" title="enter 12 digit aadhar number"  {% if p1.aadhar == None %} value="" {% else %} value="{{p1.aadhar}}" {% endif %} required>
+								</label>
+								<label for="ph_no">Mobile Number:&nbsp;&nbsp;
+									<input type="text" id="ph_no" name="ph_no" pattern="[0-9]{10}" title="enter valid phone number" {% if p1.mobile == None %} value="" {% else %} value="{{p1.mobile}}" {% endif %} required>
+								</label>
+								<label for="email">E-mail Id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="email" id="email" name="email" value="{{p1.email}}" required>
+								</label><br><br>
+
+
+								<h3>Educational Details</h3>
+
+								<label>SSC/CBSE etc:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" name="percentage" placeholder="% of marks" value="{{e.sec_per}}">
+									<input type="text" name="grade" placeholder="Grade" value="{{e.sec_grade}}">
+									<input type="text" name="school" placeholder="School of study & Place" size="35" value="{{e.sec_scl}}">
+								</label>
+								<label>INTER/+2/DIPLOMA:<input type="text" name="ipercentage" placeholder="% of marks" value="{{e.inter_per}}">
+									<input type="text" name="igrade" placeholder="Grade" value="{{e.inter_grade}}">
+									<input type="text" name="ischool" placeholder="College of study & Place" size="35" value="{{e.inter_scl}}">
+								</label><br><br>
+
+
+								<h3>Qualifying Examination Details</h3>
+
+								<label>EAMCET:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" name="htno" placeholder="HT NO" value="{{e.eamcet_htno}}">
+									<input type="text" name="year" placeholder="YEAR" value="{{e.eamcet_year}}">
+									<input type="text" name="rank" placeholder="RANK" value="{{e.eamcet_rank}}">
+								</label>
+								<label>JEE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" name="jhtno" placeholder="HT NO" value="{{e.jee_htno}}">
+									<input type="text" name="jyear" placeholder="YEAR" value="{{e.jee_year}}">
+									<input type="text" name="jrank" placeholder="RANK" value="{{e.jee_rank}}">
+								</label>
+								<label>ECET(Diploma):
+									<input type="text" name="ehtno" placeholder="HT NO" value="{{e.ecet_htno}}">
+									<input type="text" name="eyear" placeholder="YEAR" value="{{e.ecet_year}}">
+									<input type="text" name="erank" placeholder="RANK" value="{{e.ecet_rank}}">
+								</label><br><br>
+
+
+								<h3>Admission Details</h3>
+
+								
+								<label for="nationality">Nationality:
+									<input type="text" id="nationality" name="nationality" value="{{a.nationality}}">
+								</label>
+								<label for="religion">Religion:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="religion" name="religion" value="{{a.religion}}">
+								</label>
+								<label for="caste">Caste:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="caste" name="caste" value="{{a.caste}}">
+								</label>
+								<label for="state">State:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="state" name="state" value="{{a.state}}">
+								</label>
+								<label>Category of Admission:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="radio" Name="cat" value="A" {% if a.cat_admission == "A" %} checked {% endif %}>&nbsp;EAMCET Cat A&nbsp;&nbsp;<Input type="radio" Name="cat" value="B" {% if a.cat_admission == "B" %} checked {% endif %}>&nbsp;EAMCET Cat B&nbsp;&nbsp;<Input type="radio" Name="cat" value="S" {% if a.cat_admission == "S" %} checked {% endif %}>&nbsp;SPOT&nbsp;&nbsp;<Input type="radio" Name="cat" value="E" {% if a.cat_admission == "E" %} checked {% endif %}>&nbsp;ECET
+								</label>
+								<label>Availing AP Gov. Fee Reimbursement Scheme:&nbsp;
+									<input type="radio" Name="fee" value="YF" {% if a.fee_reimb == "YF" %} checked {% endif %}>&nbsp;Yes-Full Fee&nbsp;&nbsp;<Input type="radio" Name="fee" value="YP" {% if a.fee_reimb == "YP" %} checked {% endif %}>&nbsp;Yes-Partial Fee&nbsp;&nbsp;<Input type="radio" Name="fee" value="N" {% if a.fee_reimb == "N" %} checked {% endif %}>&nbsp;No
+								</label><br><br>
+
+
+								<h3>Details of Parents</h3>
+
+								<label>Father's Details:
+									<input type="text" name="fname" placeholder="NAME" style="margin-left: 1.05cm;" size="30" value="{{pa.f_name}}">
+									<input type="text" name="fqual" placeholder="QUALIFICATION" size="24" value="{{pa.f_qual}}">
+									<input type="text" name="foccup" placeholder="OCCUPATION" size="24" value="{{pa.f_occup}}">
+									<input type="email" name="femail" placeholder="EMAIL ID" style="margin-left: 4.3cm;margin-top:1mm;" size="30" value="{{pa.f_email}}">
+									<input type="text" name="fmobile" placeholder="MOBILE NO." pattern="[0-9]{10}" size="24" {% if pa.f_mobile == None %} placeholder="MOBILE NO." {% else %} value="{{pa.f_mobile}}" {% endif %} >
+									<input type="text" name="fincome" placeholder="ANNUAL INCOME" size="24" value="{{pa.f_income}}">
+								</label>
+								<label>Mother's Details:
+									<input type="text" name="mname" placeholder="NAME" size="30" value="{{pa.m_name}}">
+									<input type="text" name="mqual" placeholder="QUALIFICATION" size="24" value="{{pa.m_qual}}">
+									<input type="text" name="moccup" placeholder="OCCUPATION" size="24" value="{{pa.m_occup}}">
+									<input type="email" name="memail" placeholder="EMAIL ID" style="margin-left: 4.3cm;margin-top:1mm;" size="30" value="{{pa.m_email}}">
+									<input type="text" name="mmobile" placeholder="MOBILE NO." pattern="[0-9]{10}" size="24" {% if pa.m_mobile == None %} placeholder="MOBILE NO." {% else %} value="{{pa.m_mobile}}" {% endif %}>
+									<input type="text" name="mincome" placeholder="ANNUAL INCOME" size="24" value="{{pa.m_income}}">
+								</label>
+								<div style="float: left; padding-right:3cm;">
+								<label for="paddress">Permanent Address:</label>
+								<textarea id="paddress" name="paddress" rows="5" cols="40">{{pa.p_address}}</textarea></div>
+								<label for="caddress">Contact Address:</label>
+								<textarea id="caddress" name="caddress" rows="5" cols="40">{{pa.c_address}}</textarea><br><br><br>
+
+								
+								<label><h3 style="float: left;">Present Stay</h3>&nbsp;&nbsp;&nbsp;&nbsp;
+								<select name="hd" id="hd" style="width:150px; height:30px; border:2px solid gray; border-radius:3px;" onchange="showfield(this.options[this.selectedIndex].value)">
+									<option value=" " {% if s.stay == " " %} selected {% endif %}>Please select ...</option>
+									<option value="Dayscholar" {% if s.stay == "Dayscholar" %} selected {% endif %}>Dayscholar</option>
+									<option value="Hostler" {% if s.stay == "Hostler" %} selected {% endif %}>Hostler</option>
+								</select></label>
+								<div id="div1"></div>
+
+								<script type="text/javascript">
+									function showfield(name)
+									{
+										var data='<br><br><h3>Details of Hostel</h3>'+
+										'<label for="hname">Hostel Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="hname" name="hname" size="50" value="{{s.h_name}}"></label>'+
+										'<label for="hph_no">Phone Number:<input type="text" id="hph_no" name="hph_no" pattern="[0-9]{10}" title="enter valid phone number" {% if s.h_phno == "None" %} value="" {% else %} value="{{s.h_phno}}" {% endif %}></label>'+
+										'<label for="haddress" style="float:left;">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><textarea id="haddress" name="haddress" rows="5" cols="40">{{h_address}}</textarea>'+
+										'<br><br><h3>Details of Local Guardian</h3>'+
+										'<label for="gname">Guardian Name:<input type="text" id="gname" name="gname" size="50" value="{{s.g_name}}"></label>'+
+										'<label for="gph_no">Mobile Number:<input type="text" id="gph_no" name="gph_no" pattern="[0-9]{10}" title="enter valid phone number" {% if s.g_phno == "None" %} value="" {% else %} value="{{s.g_phno}}" {% endif %}></label>'+
+										'<label for="gaddress" style="float:left;">Address:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label><textarea id="gaddress" name="gaddress" rows="5" cols="40">{{g_address}}</textarea>';
+									  
+										if(name=='Hostler'){
+									  document.getElementById('div1').innerHTML=data;
+									  
+									  }
+									  else document.getElementById('div1').innerHTML='';
+									}
+
+									
+								</script>
+
+
+								<br><br><h3>Health Aspects</h3>
+
+							    <div style="float: left; padding-right:3cm;"><label for="bgroup">Blood Group:
+									<input type="text" id="bgroup" name="bgroup" value="{{e.blood_gr}}">
+								</label></div>
+								<label for="eye">Eye Sight:
+									<input type="text" id="eye" name="eye" value="{{e.eye}}">
+								</label>
+								<div style="float: left; padding-right:3cm;"><label for="height">Height:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="height" name="height" value="{{e.height}}">
+								</label></div>
+								<label for="weight">Weight:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<input type="text" id="weight" name="weight" value="{{e.weight}}">
+								</label>
+								<div style="float: left; padding-right:2.5cm;">
+									<label for="illness">Illness during the past year:</label>
+									<textarea id="illness" name="illness" rows="3" cols="40">{{e.illness}}</textarea></div>
+									<label for="medicine">Essential Medicines during Emergency:</label>
+									<textarea id="medicine" name="medicine" rows="3" cols="40">{{e.medicine}}</textarea><br><br><br>
+
+
+								<h3>Achievements during School/College</h3>
+
+                                <div style="float: left; padding-right:2.5cm;">
+									<label for="academics">In Academics:</label>
+									<textarea id="academics" name="academics" rows="3" cols="40">{{e.academic_ach}}</textarea></div>
+									<label for="activities">In Extra-Curricular Activities:</label>
+									<textarea id="activities" name="activities" rows="3" cols="40">{{e.extra_ach}}</textarea><br><br>								
+								
+								<button type="submit" class="dropbtn1">Submit</button>
+							</form>
+							
+
+									
+
+						</div>
+					</div>
+				</section>
+			
+
+		
+    {% endblock %}
+	</body>
+</html>
